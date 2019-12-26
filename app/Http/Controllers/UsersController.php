@@ -23,7 +23,11 @@ class UsersController extends Controller
         $this->validate($request, [
             'name' => 'required|max:50',
             'phone' => 'required|numeric|unique:users|min:11|max:11',
-            'password' => 'required|confirmed|min:6'
+            'password' => 'required|confirmed|min:6',
+            'captcha' => 'required|captcha',
+        ],[
+            'captcha.required' => '验证码不能为空',
+            'captcha.captcha' => '请输入正确的验证码',
         ]);
         return;
     }

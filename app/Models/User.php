@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','phone','type','qq','level','price','total_price','payment','tixian_price',
     ];
 
     /**
@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /**
+     * 关联price_info表，1对多关联
+     */
+    public function prices(){
+        return  $this->hasMany('UserPriceInfo','users_id');
+    }
 }

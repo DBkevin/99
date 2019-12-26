@@ -19,6 +19,15 @@ class LoginController extends Controller
     |
     */
 
+    /**
+     * 使用手机号码登陆
+     *
+     * @return void
+     */
+    public function phone()
+    {
+        return 'phone';
+    }
     use AuthenticatesUsers;
 
     /**

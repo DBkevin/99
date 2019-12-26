@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'aaa';
 });
 Route::resource('users', 'UsersController');
 Route::get('signup', 'UsersController@create')->name('signup');
-
+//Route::post('verificationCodes', 'VerificationCodesController@store')->name('verificationCodes.store');
 Auth::routes();

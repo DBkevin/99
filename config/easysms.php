@@ -22,8 +22,7 @@ return [
         'aliyun' => [
             'access_key_id' => env('SMS_ALIYUN_ACCESS_KEY_ID'),
             'access_key_secret' => env('SMS_ALIYUN_ACCESS_KEY_SECRET'),
-            'sign_name' => 'Larabbs',
-            'sign_name' => env('APP_NAME'),
+            'sign_name' => '厦门美莱医疗美容医院',
             'templates' => [
                 'register' => env('SMS_ALIYUN_TEMPLATE_REGISTER'),
             ]

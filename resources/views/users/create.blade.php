@@ -21,7 +21,11 @@
             <input type="number" name="phone" class="form-control" value="{{ old('phone') }}">
           </div>
           <div class="form-group ">
-              <label for="captcha">验证码</label>
+              <label for="captcha">短信验证</label>
+               <input type="text" name="verification_key"  class="form-control col-md-6" value="verificationCode_IWBTh9gteG5HcoT" >
+                <input type="number" name="verification_code"  class="form-control col-md-6" value="{{old('verification_code')}}" >
+          </div>
+          <div class="form-grop">
                 <input id="captcha" class="form-control {{ $errors->has('captcha') ? ' is-invalid' : '' }}" name="captcha" required>
                 <img class="thumbnail captcha mt-3 mb-2" src="{{ captcha_src('flat') }}" onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
                 @if ($errors->has('captcha'))

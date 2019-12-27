@@ -14,7 +14,8 @@
 Route::get('/', function () {
     return 'aaa';
 });
-Route::resource('users', 'UsersController');
+Route::post('users','UsersController@store')->name('users.store');
+Route::path('users','UsersController@uppasswd')->name('users.restpasswd');
+Route::get('restpasswd', 'UsersController@restpasswd')->name('restpasswd');
 Route::get('signup', 'UsersController@create')->name('signup');
-//Route::post('verificationCodes', 'VerificationCodesController@store')->name('verificationCodes.store');
 Auth::routes();

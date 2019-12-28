@@ -1,46 +1,80 @@
-@extends('layouts.default')
-@section('title', '注册')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="offset-md-2 col-md-8">
-  <div class="card ">
-    <div class="card-header">
-      <h5>重置密码</h5>
-    </div>
-    @include('shared._errors')
-    <div class="card-body">
-      <form method="POST" action="{{ route('patchrestpasswd') }}">
-        @method('PATCH')
-        {{ csrf_field() }}
-          <div class="form-group">
-            <label for="email">手机号码</label>
-            <input type="number" name="phone" class="form-control" value="{{ old('phone') }}">
-          </div>
-          <div class="form-group ">
-              <label for="captcha">短信验证</label>
-               <input type="text" name="verification_key"  class="form-control col-md-6" value="verificationCode_IWBTh9gteG5HcoT" >
-                <input type="number" name="verification_code"  class="form-control col-md-6" value="{{old('verification_code')}}" >
-          </div>
-          <div class="form-grop">
-                <input id="captcha" class="form-control {{ $errors->has('captcha') ? ' is-invalid' : '' }}" name="captcha" required>
-                <img class="thumbnail captcha mt-3 mb-2" src="{{ captcha_src('flat') }}" onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
-                @if ($errors->has('captcha'))
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('captcha') }}</strong>
-                  </span>
-                @endif
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>重置密码</title>
+
+    <link rel="stylesheet" href="/css/userStyle.css">
+</head>
+
+<body>
+
+    <div class="reset-interface wrap">
+        <div class="logo-container">
+            <a href="" class="logo">
+                <img src="https://nuoren-1300309221.cos.ap-guangzhou.myqcloud.com/prod/eee774c82156000.png" alt=""
+                    class="logo-img">
+            </a>
+        </div>
+
+        <div class="reset-container content">
+            <div class="banner">
+                <img src="https://nuoren-1300309221.cos.ap-guangzhou.myqcloud.com/prod/ee0aedfa3156000.png" alt=""
+                    class="banner-img">
             </div>
-          <div class="form-group">
-            <label for="password">密码：</label>
-            <input type="password" name="password" class="form-control" value="{{ old('password') }}">
-          </div>
-          <div class="form-group">
-            <label for="password_confirmation">确认密码：</label>
-            <input type="password" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}">
-          </div>
-          <button type="submit" class="btn btn-primary">重置密码</button>
-      </form>
+
+            <div class="reset validation-area">
+                <div class="h2">重置密码</div>
+
+                <div class="userCount input-wrap">
+                    <input type="text" name="userCount" id="userCount" placeholder="请输入手机号码" />
+                    <p class="userCount-check check">
+
+                    </p>
+                </div>
+                <div class="verification input-wrap">
+                    <input type="text" name="verification" id="verification" placeholder="请输入验证码" />
+                    <button id="getVerification">获取验证码</button>
+
+                    <div class="imgVer">
+                        <div class="imgVer-img-wrap">
+                            <img src="" alt="" class="imgVer-img">
+                        </div>
+                        <div class="imgVer-ver-wrap">
+                            <input type="text" class="imgVer-ver" placeholder="图形验证码" />
+                            <input type="hidden" name="captcha_key" class="userID" value="" />
+
+                            <button class="post-imgVer-btn">确定</button>
+                        </div>
+                    </div>
+
+                    <p class="verification-check check">
+                        <!-- 验证码错误 -->
+                    </p>
+                </div>
+                <div class="userPass input-wrap">
+                    <input type="password" name="userPass" id="userPass" placeholder="请输入密码" />
+                    <p class="userPass-check check">
+                        <!-- 与原密码重复 -->
+                    </p>
+                </div>
+                <button class="btn" id="submitBtn">提交</button>
+                <div class="reset-footer footer">
+                    <a href="" class="resetPass">我又想起来了</a>
+                </div>
+
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-@stop
+
+    <script src="/js/jquery-1.7.1.min.js"></script>
+    <script src="/js/commen.js"></script>
+    {{-- <script src="/js/userCountCheck.js"></script> --}}
+    <script src="/js/userPassCheck.js"></script>
+    <script src="/js/resetPWD.js"></script>
+</body>
+
+</html>

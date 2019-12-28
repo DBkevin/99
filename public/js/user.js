@@ -104,7 +104,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/99/resources/js/user.js */"./resources/js/user.js");
+module.exports = __webpack_require__(/*! /www/wwwroot/99/resources/js/user.js */"./resources/js/user.js");
 
 
 /***/ })

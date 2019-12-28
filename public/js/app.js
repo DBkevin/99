@@ -35100,9 +35100,9 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/99/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /var/www/99/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /var/www/99/resources/sass/user.scss */"./resources/sass/user.scss");
+__webpack_require__(/*! /www/wwwroot/99/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /www/wwwroot/99/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /www/wwwroot/99/resources/sass/user.scss */"./resources/sass/user.scss");
 
 
 /***/ })

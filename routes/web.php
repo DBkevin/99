@@ -14,8 +14,13 @@
 Route::get('/', function () {
     return 'aaa';
 });
-Route::post('users','UsersController@store')->name('users.store');
-Route::path('users','UsersController@uppasswd')->name('users.restpasswd');
-Route::get('restpasswd', 'UsersController@restpasswd')->name('restpasswd');
-Route::get('signup', 'UsersController@create')->name('signup');
-Auth::routes();
+Route::get('signup', 'UsersController@create')->name('signup');//显示注册
+Route::post('users','UsersController@store')->name('users.store');//注册
+Route::patch('users/uppasswd','UsersController@uppasswd')->name('patchrestpasswd');//重置密码
+Route::get('restpasswd', 'UsersController@restpasswd')->name('restpasswd');//重置页面
+Route::get('login','UsersController@showLoginForm')->name('login');//显示登陆
+Route::post('loin','UsersController@login')->name('users.login');//登陆
+Route::post('logout','UsersController@logout')->name('uses.logout');//退出登陆
+Route::group(['middleware'=>['auth']],function(){
+    Route::get('users/','UsersController@show')->name('users.show');
+});

@@ -9,10 +9,9 @@
     </div>
     @include('shared._errors')
     <div class="card-body">
-      <form method="POST" action="{{ route('users.restpasswd') }}">
+      <form method="POST" action="{{ route('patchrestpasswd') }}">
         @method('PATCH')
         {{ csrf_field() }}
-
           <div class="form-group">
             <label for="email">手机号码</label>
             <input type="number" name="phone" class="form-control" value="{{ old('phone') }}">
@@ -39,8 +38,7 @@
             <label for="password_confirmation">确认密码：</label>
             <input type="password" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}">
           </div>
-
-          <button type="submit" class="btn btn-primary">注册</button>
+          <button type="submit" class="btn btn-primary">重置密码</button>
       </form>
     </div>
   </div>

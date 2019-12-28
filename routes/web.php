@@ -24,3 +24,11 @@ Route::post('logout','UsersController@logout')->name('uses.logout');//退出登�
 Route::group(['middleware'=>['auth']],function(){
     Route::get('users/','UsersController@show')->name('users.show');
 });
+
+Route::get('alipay', function() {
+    return app('alipay')->web([
+        'out_trade_no' => time(),
+        'total_amount' => '1',
+        'subject' => 'test subject - 测试',
+    ]);
+});

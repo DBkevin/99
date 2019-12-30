@@ -36,7 +36,7 @@
                         <input type="text" name="phone" id="userCount" placeholder="请输入手机号码" />
                         <p class="userCount-check check"></p>
                         @if (count($errors) > 0)
-                          <li>{{ $errors->first('phone')}}</li>
+                        <li>{{ $errors->first('phone')}}</li>
                         @endif
                     </div>
                     <div class="verification input-wrap">
@@ -58,8 +58,9 @@
 
                         <p class="verification-check check"></p>
                         @if (count($errors) > 0)
-                          <li>{{ $errors->first('verification_code')}}</li>
+                            <li>{{ $errors->first('verification_code')}}</li>
                         @endif
+                        <li>{{ $errors->verification_code->first(0) }}</li>
                     </div>
                     <div class="userPass input-wrap">
                         <input type="password" name="password" id="userPass" placeholder="请输入密码" />
@@ -67,7 +68,7 @@
                             长度8-20个字符，不含空格，非9位以下纯数字。
                         </p>
                         @if (count($errors) > 0)
-                          <li>{{ $errors->first('password')}}</li>
+                        <li>{{ $errors->first('password')}}</li>
                         @endif
                     </div>
                     <input type="hidden" name="verification_key" id="verificationID" value="" />

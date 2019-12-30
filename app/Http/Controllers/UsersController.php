@@ -27,7 +27,7 @@ class UsersController extends Controller
     public function uppasswd(UpPasswdRequest $request){
         $verifyData=\Cache::get($request->verification_key);
         if(!$verifyData){
-            return  back()->withErrors('验证码已失效','verification_key');
+            return  back()->withErrors('验证码已失效');
         }
         if(!hash_equals($verifyData['code'],$request->verification_code)){
             return  back()->withErrors('验证错误','verification_code');

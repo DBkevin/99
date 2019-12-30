@@ -7,6 +7,16 @@ var userCount = $('#userCount'),
 /**
  * @name  为获取验证码按钮添加点击事件
  */
+userCount.on('input', function () {
+    userCountCheck.empty();
+});
+verification.on('input', function () {
+    verificationCheck.empty();
+});
+userPass.on('input', function () {
+    userPassCheck.text('密码长度8-20个字符，不含空格，非9位以下纯数字').css('color', '#999');
+});
+
 getVerification.on('click', function () {
     phoneNum = userCount.val();
     if (judgePhoneNum(phoneNum)) {
@@ -92,21 +102,36 @@ userPass.on('input', function () {
 });
 
 submitBtn.on('click', function () {
-    var deadline = convertTimeFormat(ver_data['expired_at']);
-    var nowTime = getCurrentTime();
-    if (nowTime > deadline) {
-        verificationCheck.text('验证码已失效');
-        sendResetPwdAjax(phoneNum);
+    // console.log(userPass.val(), verification.val(), userCount.val());
+    if (userPass.val() == '') {
+        console.log('userPass'+userPass.val());
+        if (verification.val() == '') {
+            if (userCount.val() == '') {
+                userCountCheck.text('电话号码不能为空');
+                return false;
+            }
+            verificationCheck.text('验证码不能为空');
+            return false;
+        }
+        userPassCheck.text('密码不能为空').css('color','#f00');
         return false;
     } else {
-        if (judgeVerCode(verification.val())) {
-
-            console.log('验证码正确');
-            return true;
-        } else {
-            console.log('验证码格式错误');
-            getVerification.attr('type', 'button').css('background', '#1d87f7').text('获取验证码');
+        var deadline = convertTimeFormat(ver_data['expired_at']);
+        var nowTime = getCurrentTime();
+        if (nowTime > deadline) {
+            verificationCheck.text('验证码已失效');
+            sendResetPwdAjax(phoneNum);
             return false;
+        } else {
+            if (judgeVerCode(verification.val())) {
+
+                console.log('验证码正确');
+                return true;
+            } else {
+                console.log('验证码格式错误');
+                getVerification.attr('type', 'button').css('background', '#1d87f7').text('获取验证码');
+                return false;
+            }
         }
     }
 });

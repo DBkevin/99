@@ -87,7 +87,6 @@ height: 68px;
 }
 
 .check {
-    padding: 0 10px;
     font-size: 10px;
     color: red;
 }
@@ -265,6 +264,10 @@ height: 68px;
 
 .register{
     margin: 24px 0 10px 0;
+}
+
+.userName-check{
+    color: #999;
 }
 
 .userPass{

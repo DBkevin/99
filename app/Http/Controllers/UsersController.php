@@ -63,7 +63,7 @@ class UsersController extends Controller
         ]);
         // 清除验证码缓存
         \Cache::forget($request->verification_key);
-        return;
+        return redirect()->route('users.show', [Auth::user()]);
     }
     //显示登陆页面
     public function showLoginForm(){

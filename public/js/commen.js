@@ -18,6 +18,8 @@
  * 检查密码的定时器
  */
 var baseHttp = 'http://99.test/api/v1/';
+var userName = $('#userName'),
+    userNameCheck = $('.userName-check');
 var userCount = $('#userCount'),
     userCountCheck = $('.userCount-check'),
     phoneNum;
@@ -27,6 +29,8 @@ var imgVer = $('.imgVer'),
     userID = $('.userID'),
     postImgVerBtn = $('#post-imgVer-btn'),
     imgVerCheck = $('.imgVer-ver-check'),
+    verification = $('#verification'),
+    getVerification = $('#getVerification'),
     verificationCheck = $('.verification-check'),
     verificationID = $('#verificationID');
 var imgVer_data,
@@ -35,7 +39,14 @@ var userPass = $('#userPass'),
     userPassCheck = $('.userPass-check'),
     pwd;
 var submitBtn = $('#submitBtn');
-var checkPWD;
+var checkPWD,
+    checkPWDAgain;
+
+var pwdCheckAgain = $('#userPassAgain'),
+    pwdCheckAgainCheck = $('.userPassAgain-check'),
+    PWDAgain;
+
+var registerBtn = $('#registerBtn');
 /**
  * @name  判断手机号码的正确性
  * @param {int} phoneNum 
@@ -79,8 +90,7 @@ function rewritePhoneNum($focusEle, $checkEle, sentence) {
 function fillImgVer(imgVerData) {
     imgVer_data = imgVerData;
     imgVer.show();
-
-    imgVer_img.attr('src', imgVerData['caotcha_image_content']);
+    imgVer_img.attr('src', imgVerData['captcha_image_content']);
 
     userID.attr('value', imgVerData['captcha_key']);
 }

@@ -21,7 +21,6 @@ class CaptchasController extends Controller
             'captcha_image_content'=>$captcha->inline()
         ];
         return response()->json($result)->setStatusCode(201);
-
     }
     public function resetPasswd(RestPwCaptchaRequest $request,CaptchaBuilder $captchaBuilder){
          $key='Rest-captcha-'.Str::random(11);
@@ -32,7 +31,7 @@ class CaptchasController extends Controller
         $result=[
             'captcha_key'=>$key,
             'expired_at'=>$expiredAt->toDateTimeString(),
-            'caotcha_image_content'=>$captcha->inline(),
+            'captcha_image_content'=>$captcha->inline(),
         ];
         return response()->json($result)->setStatusCode(201);
 

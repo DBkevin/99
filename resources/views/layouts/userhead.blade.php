@@ -12,11 +12,9 @@
             <div class="consult-box fl"><i class="iconfont icon-weixin mr5"></i> <span class="WXQRcode spanHover mr10 pointer">
                     微信客服咨询
                 </span>
-
             </div>
             <div class="change-password-box fl pointer"><i class="iconfont icon-mima"></i> <span class="spanHover">修改密码</span></div>
             <div class="out fl pointer"><i class="iconfont icon-exit index-font-color"></i> <span>退出</span></div>
         </div>
     </div>
-
 </div>

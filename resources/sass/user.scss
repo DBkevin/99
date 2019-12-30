@@ -1505,3 +1505,53 @@ article, aside, audio, body, body a, body abbr, body acronym, body address, body
     content: "\E7CA"
 }
 
+//
+
+.content{
+    box-sizing:border-box;
+    width:calc(100% - 200px);
+    position: relative;
+}
+.p115{
+    padding-left:15px;
+}
+.pr15{
+    padding-right:15px;
+}
+.page{
+    border-bottom:1px solid #ccc;
+}
+.mb15{
+    margin-bottom:15px;
+}
+.overflow{
+    overflow:hidden;
+}
+.page-title ul .liAvtive{
+    color:#1799ea;
+}
+.page-title ul li{
+    text-align:center;
+    float: left;
+    padding:26px 14px 14px;
+    font-size:16px;
+}
+.ml20{
+    margin-left:20px;
+}
+.mt20{
+    margin-top:20px;
+}
+.liuliangbi .paragraph .title, .liuliangbi .paragraph .titles{
+    color:#666;
+    display:inline-block;
+
+    font-size:16px;
+
+    height:35px;
+
+    min-width:96px;
+
+    text-align:right;
+    margin-right:20px;
+}

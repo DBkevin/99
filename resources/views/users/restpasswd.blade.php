@@ -14,9 +14,8 @@
 
     <div class="reset-interface wrap">
         <div class="logo-container">
-            <a href="" class="logo">
-                <img src="https://nuoren-1300309221.cos.ap-guangzhou.myqcloud.com/prod/eee774c82156000.png" alt=""
-                    class="logo-img">
+            <a href="/" class="logo">
+                <img src="/images/logo.png" alt="" class="logo-img">
             </a>
         </div>
 
@@ -25,8 +24,7 @@
             {{ method_field('PATCH')}}
             <div class="reset-container content">
                 <div class="banner">
-                    <img src="https://nuoren-1300309221.cos.ap-guangzhou.myqcloud.com/prod/ee0aedfa3156000.png" alt=""
-                        class="banner-img">
+                    <img src="/images/login&reset.png" alt="" class="banner-img">
                 </div>
 
                 <div class="reset validation-area">
@@ -58,7 +56,7 @@
 
                         <p class="verification-check check"></p>
                         @if (count($errors) > 0)
-                            <li>{{ $errors->first('verification_code')}}</li>
+                        <li>{{ $errors->first('verification_code')}}</li>
                         @endif
                         <li>{{ $errors->verification_code->first(0) }}</li>
                     </div>
@@ -74,7 +72,7 @@
                     <input type="hidden" name="verification_key" id="verificationID" value="" />
                     <button type="submit" class="btn" id="submitBtn">提交</button>
                     <div class="reset-footer footer">
-                        <a href="" class="resetPass">我又想起来了</a>
+                        <a href="/login" class="resetPass">我又想起来了</a>
                     </div>
                 </div>
             </div>
@@ -83,9 +81,6 @@
 
     <script src="/js/jquery-1.7.1.min.js"></script>
     <script src="/js/commen.js"></script>
-    {{-- <script src="/js/userCountCheck.js"></script> --}}
-    {{-- <script src="/js/userPassCheck.js"></script> --}}
-    {{-- <script src="/js/userPassCheck-strict.js"></script> --}}
     <script src="/js/resetPWD.js"></script>
 </body>
 

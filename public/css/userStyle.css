@@ -80,6 +80,11 @@ height: 68px;
 
     box-sizing: border-box;
 }
+.input-wrap>li{
+    list-style: none;
+    font-size: 12px;
+    color: #f00;
+}
 
 .check {
     padding: 0 10px;

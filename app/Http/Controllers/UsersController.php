@@ -27,14 +27,15 @@ class UsersController extends Controller
     public function uppasswd(UpPasswdRequest $request){
         $verifyData=\Cache::get($request->verification_key);
         if(!$verifyData){
-            return  back()->withErrors('验证码已失效');
+            return  back()->withErrors('验证码已失效','verification_key');
         }
         if(!hash_equals($verifyData['code'],$request->verification_code)){
-            return  back()->withErrors('验证错误');
+            return  back()->withErrors('验证错误','verification_code');
         }
         $user=User::where('phone',$verifyData['phone'])->first();
         $user->password=bcrypt($request->password);
         $user->update();
+         return redirect()->route('users.show', [Auth::user()]);
         //清楚验证码缓存
         \Cache::forget($request->verification_key);
         return;

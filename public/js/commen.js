@@ -1,8 +1,8 @@
 /**
  * 基础url
  * 用户账号输入区
- * 手机号
  * 手机号输入框纠错区
+ * 手机号
  * 图形验证码图片
  * 图形验证码输入框
  * 用户请求ID
@@ -15,25 +15,27 @@
  * 密码输入框
  * 密码输入框纠错区
  * 提交按钮
+ * 检查密码的定时器
  */
 var baseHttp = 'http://99.test/api/v1/';
 var userCount = $('#userCount'),
-    phoneNum,
-    userCountCheck = $('.userCount-check');
+    userCountCheck = $('.userCount-check'),
+    phoneNum;
 var imgVer = $('.imgVer'),
     imgVer_img = $('.imgVer-img'),
     imgVer_ver = $('.imgVer-ver'),
     userID = $('.userID'),
     postImgVerBtn = $('#post-imgVer-btn'),
     imgVerCheck = $('.imgVer-ver-check'),
-    verificationCheck=$('.verification-check'),
+    verificationCheck = $('.verification-check'),
     verificationID = $('#verificationID');
 var imgVer_data,
     ver_data;
 var userPass = $('#userPass'),
-    userPassCheck = $('.userPass-check');
+    userPassCheck = $('.userPass-check'),
+    pwd;
 var submitBtn = $('#submitBtn');
-
+var checkPWD;
 /**
  * @name  判断手机号码的正确性
  * @param {int} phoneNum 
@@ -52,6 +54,14 @@ function judgePwd(pwd) {
     var Reg = /^[a-zA-Z0-9~!@&%#*._]{9,20}$/;
 
     if (!Reg.test(pwd)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+function judgeVerCode(code) {
+    var Reg = /[0-9]{4}/;
+    if (!Reg.test(code)) {
         return false;
     } else {
         return true;

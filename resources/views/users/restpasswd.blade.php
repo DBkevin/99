@@ -47,8 +47,9 @@
                             <input type="text" class="imgVer-ver" placeholder="图形验证码" />
                             <input type="hidden" name="captcha_key" class="userID" value="" />
 
-                            <button class="post-imgVer-btn">确定</button>
+                            <button id="post-imgVer-btn" class="post-imgVer-btn">确定</button>
                         </div>
+                        <div class="imgVer-ver-check"></div>
                     </div>
 
                     <p class="verification-check check">
@@ -61,6 +62,7 @@
                         <!-- 与原密码重复 -->
                     </p>
                 </div>
+                <input type="hidden" name="verificationID" id="verificationID" value="" />
                 <button class="btn" id="submitBtn">提交</button>
                 <div class="reset-footer footer">
                     <a href="" class="resetPass">我又想起来了</a>
@@ -73,7 +75,7 @@
     <script src="/js/jquery-1.7.1.min.js"></script>
     <script src="/js/commen.js"></script>
     {{-- <script src="/js/userCountCheck.js"></script> --}}
-    <script src="/js/userPassCheck.js"></script>
+    <script src="/js/userPassCheck-strict.js"></script>
     <script src="/js/resetPWD.js"></script>
 </body>
 

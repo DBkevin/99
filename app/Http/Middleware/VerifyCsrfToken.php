@@ -19,6 +19,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //暂时排除短信接口
+        //暂时排除接口
+        'payment/alipay/notify',
     ];
 }

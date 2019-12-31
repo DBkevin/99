@@ -15,6 +15,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
     'order_ttl'=>60,
+    'tokensPH'=>100,
+    'tokensName'=>'流量币',
     /*
     |--------------------------------------------------------------------------
     | Application Environment

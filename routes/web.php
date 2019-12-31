@@ -25,8 +25,10 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('users','UsersController@show')->name('users.show');
     Route::get('payment','PostController@show')->name('post.show');
     Route::post('order','OrderController@store')->name('order.store');
-    Route::get('payment/{order}/alipay', 'OrderController@payByAlipay')->name('payment.alipay'); //支付
+    Route::get('payment/{order}/alipay', 'OrderController@payByAlipay')->name('payment.alipay'); //支付路由
+    Route::get('payment/alipay/return', 'OrderController@alipayReturn')->name('payment.alipay.return');//支付前端回调
 });
+   Route::post('payment/alipay/notify', 'OrderController@alipayNotify')->name('payment.alipay.notify');//支付后端回调
 
 Route::get('alipay', function() {
     return app('alipay')->web([

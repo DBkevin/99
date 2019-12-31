@@ -30,7 +30,7 @@ class CloseOrder implements ShouldQueue
     public function handle()
     {
         if ($this->order->paid_at) {
-            return;
+            return ;
         }
         $this->order->update(['pay_status'=>\App\Models\Order::PAY_STATUS_CLOSED]);
     }

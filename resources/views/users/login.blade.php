@@ -19,7 +19,6 @@
                 <img src="/images/logo.png" alt="" class="logo-img">
             </a>
         </div>
-
         <form action="{{route('login')}}" method="post">
             @csrf
             <div class="login-container content">
@@ -36,6 +35,7 @@
                         @if (count($errors) > 0)
                         <li>{{ $errors->first('phone')}}</li>
                         @endif
+                         <li>{{ $errors->phone->first(0) }}</li>
                     </div>
                     <div class="userPass input-wrap">
                         <input type="password" name="password" id="userPass" placeholder="请输入密码" />
@@ -43,6 +43,7 @@
                         @if (count($errors) > 0)
                         <li>{{ $errors->first('password')}}</li>
                         @endif
+                         <li>{{ $errors->phone->first(0) }}</li>
                     </div>
                     <button type="submit" id="loginBtn" class="loginBtn btn">登录</button>
                     <div class="login-footer footer">

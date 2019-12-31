@@ -24,6 +24,8 @@ Route::post('logout','UsersController@logout')->name('uses.logout');//退出登�
 Route::group(['middleware'=>['auth']],function(){
     Route::get('users','UsersController@show')->name('users.show');
     Route::get('payment','PostController@show')->name('post.show');
+    Route::post('order','OrderController@store')->name('order.store');
+    Route::get('payment/{order}/alipay', 'OrderController@payByAlipay')->name('payment.alipay'); //支付
 });
 
 Route::get('alipay', function() {

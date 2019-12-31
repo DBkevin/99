@@ -9,9 +9,11 @@ class Order extends Model
     //
     const PAY_STATUS_PENDING = 'pending';
     const PAY_STATUS_SUCCESS = 'success';
+    const PAY_STATUS_CLOSED='closed';
     public static $PAYStatusMap = [
         self::PAY_STATUS_PENDING    => '未支付',
         self::PAY_STATUS_SUCCESS    => '支付成功',
+        self::PAY_STATUS_CLOSED     =>"超时关闭",
     ];
     protected $fillable = [
         'no',

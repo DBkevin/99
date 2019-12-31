@@ -14,7 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-
+    'order_ttl'=>60,
     /*
     |--------------------------------------------------------------------------
     | Application Environment

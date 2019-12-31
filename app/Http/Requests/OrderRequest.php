@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-Use App\Models\Product;
 
 class OrderRequest extends FormRequest
 {
@@ -18,7 +17,9 @@ class OrderRequest extends FormRequest
         return [
             //
             'price'=>[
-                'required|integer',
+                'required',
+                'numeric',
+                'gt:1',
             ]
         ];
     }

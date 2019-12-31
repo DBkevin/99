@@ -17,9 +17,9 @@
                                 </a></p>
                         </div>
                     </br>
-                    <form action="" method="post">
+                    <form action="{{ route('order.store')}}" method="post">
                         @csrf
-                    <input type="hidden" name="suer_id" value="{{$user->id}}">
+                     <input type="hidden" name="suer_id" value="{{$user->id}}">
                         <div class="paragraph exchange-list-box mt20 clearfix"><span class="title fl">充值套餐</span>
                             <ul>
                                 <select name="" id="">
@@ -36,8 +36,7 @@
                         </div>
                     </br>
                         <div class="paragraph clearfix ml20"><span class="titles fl">充值金额</span>
-                            <div class="fl mr15"><input type="Number" placeholder="请输入金额"
-                                    class="inputStyle mr10"><span>元</span></div>
+                            <div class="fl mr15"><input type="Number" name="price" placeholder="请输入金额"  class="inputStyle mr10"><span>元</span></div>
                         </div>
                     </br>
                         <div class="paragraph mt10 colora6a6a6 clearfix"><span>1元=<span

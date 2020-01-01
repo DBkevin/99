@@ -28,7 +28,10 @@ class Order extends Model
     protected $dates = [
         'paid_at',
     ];
-    
+    public function getIntTokens($value){
+        return intval($value)* config('app.tokensPH');
+    }
+
     protected static function boot()
     {
         parent::boot();

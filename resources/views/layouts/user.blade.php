@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title' ) - 人气</title>
-    <link rel="stylesheet" href="{{ mix('css/user.css') }}">
-    <script src="{{mix('js/user.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="/css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="/css/header_silder.css">
+    <script  type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+    @yield('styles')
   </head>
   <body>
     @include('layouts.userhead')
-    <div class="Index-width-box clearfix">
-      <div class="fl">
-       <div class="left-column index index-color1" style="height: 638px;">
-           <div class="position index-Bg-color">
-               <ul class="title">
-                   <li class="pointer index">
-                       <i class="iconfont mr15 icon-shouye"></i>
-                       <span class="fs16">会员中心</span>
-                   </li>
-               </ul>
-            </div>
-       </div>
-      </div>
+    <div class="content-wrap">
+      @yield('content')
     </div>
-    @yield('content')
   </body>
+   @yield('scripts')
 </html>

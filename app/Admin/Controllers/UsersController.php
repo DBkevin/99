@@ -33,10 +33,10 @@ class UsersController extends AdminController
             return $value ? $value : '无';
         });
         $grid->level('会员等级')->display(function($value){
-            if($value==1){
-                return "普通";
+            if($value==2){
+                return "VIP";
             }else{
-                return 'VIP';
+                return '普通';
             }
         });
         $grid->price('金额');

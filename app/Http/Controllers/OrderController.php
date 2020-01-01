@@ -13,8 +13,8 @@ use App\Exceptions\InvalidRequestException;
 
 class OrderController extends Controller
 {
-
     //
+    
     public function store(OrderRequest $request)
     {
         $user  = \Auth::id();
@@ -64,7 +64,7 @@ class OrderController extends Controller
         return app('alipay')->web([
             'out_trade_no' => $order->no, // 订单编号，需保证在商户端不重复
             'total_amount' => $order->price, // 订单金额，单位元，支持小数点后两位
-            'subject'      => "支付 {{config('app.name')}}的订单：" . $order->no, // 订单标题
+            'subject'      => "支付".config('app.name')."的订单：" . $order->no, // 订单标题
         ]);
     }
 
@@ -89,21 +89,23 @@ class OrderController extends Controller
         }
         $order->update([
             'paid_at'        => Carbon::now(), // 支付时间
-            'payment_method' => 'alipay', // 支付方式
+            'pay_status'=>Order::PAY_STATUS_SUCCESS, //支付状态
             'payment_no'     => $data->trade_no, // 支付宝订单号
         ]);
         /**
          * 根据具体业务决定是否开始事务
          */
         //确定付款开始计算金额
-        $user_tokens=(int)$order->total_amout * config('app.tokensPH'); //apptokensPH是固定比例，1元等100代币就在app.php新增一个tokensPH=>100；
+        $user_tokens= intval($order->total_amount * config('app.tokensPH')); //apptokensPH是固定比例，1元等100代币就在app.php新增一个tokensPH=>100；
         $user=User::where('id',$order->user_id)->first();
+        $user_old_total_price=$user->total_price;//获取当前的累计真是金额
+        $user_old_tokens=$user->tokens;//获取当前剩余的代币数量
+      
         //更新用户表数据
         $user->update([
-            'tokens'=>$user_tokens,
-            'total_price'=>$user->price+$order->price,
+            'tokens'=>$user_tokens + $user_old_tokens,
+            'total_price'=>$user_old_total_price + $order->price
         ]);
-
         return app('alipay')->success(); //通知alipay收到
         \Log::debug('Alipay notify', $data->all());
     }

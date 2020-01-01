@@ -1,0 +1,347 @@
+
+.dropdown{
+    padding: 0 15px;
+    width: 167px;
+    height: 33px;
+    line-height: 33px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+
+    justify-content: space-between;
+}
+.dropdown>.iconfont{
+    font-size: 12px;
+}
+.queryBtn{
+    width: 80px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border: none;
+    background-color: #1799ea;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+.query-result,
+.query-result>table{
+    width: 100%;
+    min-width: 1170px;
+    color: #666;
+    font-size: 14px;
+}
+.query-result{
+    margin-bottom: 20px;
+    min-height: 500px;
+    border: 1px solid #ccc;
+    overflow-x: scroll;
+}
+.query-result>table{
+    overflow-x: scroll;
+    border-bottom: 1px solid #ccc;
+}
+.query-result>table>thead{
+    background-color: #f9fbfd;
+}
+.query-result>table tr{
+    width: 100%;
+    height: 50px;
+}
+.query-result>table th{
+    font-weight: normal;
+}
+.query-result>table td{
+    width: 180px;
+    text-align: center;
+}
+
+
+
+
+
+
+/* 流量币充值页面 */
+.charge>form>div{
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+.charge-title{
+    margin: 0 20px 0 52px;
+    font-size: 16px;
+    color:#666;
+}
+/* 充值方式 */
+.pay-mode-title{
+    margin-top: 30px;
+}
+.pay-mode-item{
+    position: relative;
+}
+.invoice{
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 14px;
+}
+.pay-mode-item>a{
+    display: block;
+    width: 180px;
+    height: 83px;
+}
+.pay-mode-item>a>img{
+    width: 100%;
+    height: 100%;
+}
+.pay-mode-choosen{
+    border: 1px solid #f00;
+    z-index: -1;
+}
+.choosen-icon{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 24px;
+    height: 24px;
+    background: url('/images/choosen.png');
+}
+/* 充值套餐 */
+.charge-type-title{
+    margin-top: 15px;
+}
+.charge-type-container{
+    /* box-sizing: border-box; */
+    padding: 0;
+    margin: 0;
+    max-width: 1010px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: space-between;
+    height: 124px;
+    color: #666;
+}
+.charge-type-item{
+    margin-right: 20px;
+    width: 180px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #f7f7f7;
+    border: 1px solid #eee;
+    cursor: pointer;
+}
+.charge-type-item-active{
+    color: #1799ea;
+    border-color: #1799ea;
+}
+/* 充值金额 */
+.charge-value-title{
+    margin-top: 7px;
+}
+.charge-value-input>input{
+    margin-right: 10px;
+    padding: 0 5px;
+    width: 153px;
+    height: 35px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+.charge-value-tip{
+    margin-top: 10px;
+    color: #a6a6a6;
+}
+.charge-value-tip span{
+    color: #f00; 
+}
+.anytimeDelete{
+    font-weight: normal;
+}
+
+/* 温馨提示 */
+.charge-tip{
+    flex-direction: column;
+    margin-left: 136px;
+    padding: 0 20px;
+    width: 1047px;
+    height: 95px;
+    border: 1px solid #1799ea;
+}
+.tip-title{
+    margin-top: 3px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #1799ee;
+}
+.tip-item{
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+}
+/* 确认充值按钮 */
+.confirm{
+    margin-left: 140px;
+}
+.confirmBtn{
+    width: 160px;
+    height: 48px;
+    text-align: center;
+    line-height: 48px;
+    color: #fff;
+    background-color: #1799ea;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+/* 注意事项 */
+.attentions{
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin: 25px 0 0 130px;
+    padding: 10px 15px;
+    width: 1063px;
+    height: 150px;
+    border:1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #a6a6a6;
+}
+.attentions-item{
+    margin-top: 7px;
+}
+
+
+/* 充值记录 */
+.record{
+    min-width: 1170px;
+}
+/* 充值tab */
+.record-tab{
+    min-width: 1170px;
+    margin-bottom: 20px;
+}
+.record-tab-item{
+    height: 35px;
+    line-height: 35px;
+    margin-right: 40px;
+    color: #666;
+}
+.record-tab-item:last-of-type{
+    margin: 0;
+}
+.record-tab-item-title{
+    margin-right: 10px;
+}
+.record-dropdown{
+    padding: 0 15px;
+    width: 167px;
+    height: 33px;
+    line-height: 33px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+
+    justify-content: space-between;
+}
+.record-dropdown>.iconfont{
+    font-size: 12px;
+}
+.calendar{
+    padding: 0;
+    width: 298px;
+    justify-content: space-around;
+}
+.startTime,
+.endTime{
+    font-size: 13px;
+    color: #ccc;
+    cursor: text;
+}
+/* 数据和页码 */
+.statistics{
+    justify-content: space-between;
+}
+.statistics-total{
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+}
+.statistics-total>p:first-of-type{
+    margin-right: 20px;
+}
+.statistics-total-data{
+    color: #1799ea;
+}
+.visibleData{
+    padding: 0 5px;
+    width: 60px;
+    height: 30px;
+}
+.statistics-page{
+    font-size: 14px;
+    color: #6d6d6d;
+}
+.prev,
+.next{
+    padding: 0 8px;
+    cursor: pointer;
+}
+.page{
+    color: #1799ea;
+    padding: 0 10px;
+}
+.whichPage{
+    width: 35px;
+    height: 32px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+.go{
+    width: 40px;
+    height: 32px;
+    border: none;
+    color: #fff;
+    background-color: #1799ea;
+    cursor: pointer;
+}
+
+/* 消费明细 */
+/* 消费明细tab */
+.spending-tab{
+    margin-bottom: 20px;
+}
+.spending-tab-item{
+    align-items: center;
+    margin-right: 30px;
+}
+.spending-tab-title{
+    margin-right: 10px;
+    color: #666;
+    font-size: 16px;
+}
+.no-data{
+    width: 100%;
+    height: 51px;
+    line-height: 51px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* 客服处理 */
+.customer-tab{
+    margin-bottom: 20px;
+}
+.customer-tab-item{
+    align-items: center;
+    margin-right: 30px;
+    color:#666;
+}
+.customer-tab-title{
+    margin-right: 10px;
+}

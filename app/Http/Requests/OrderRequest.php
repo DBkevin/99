@@ -15,7 +15,7 @@ class OrderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            
             'price'=>[
                 'required',
                 'numeric',

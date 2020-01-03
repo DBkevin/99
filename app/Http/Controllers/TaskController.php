@@ -8,7 +8,11 @@ use Carbon\Carbon;
 
 class TaskController extends Controller
 {
-    //
+    //TaskController
+    public function pddindex()
+    {
+        return view('tasks.pdd');
+    }
     public function store(Request $request)
     {
         //接收参数并生成任务
@@ -16,23 +20,67 @@ class TaskController extends Controller
         $plant = $request->plant; // 平台名称
         $task = $request->task; //任务类型，流量/收藏
         $type = $request->type; //任务类别，如App流量，搜索收藏
-        $pro_url = $request->pro_url; //商品链接，
-        $pro_title = $request->pro_title; //商品标题,
-        $keyword = $request->keyword; //关键词，收藏任务不需要
-        $show = $request->show; //展现量，Pdd全系不需要，保持默认即可
-        $custom1 = $request->custom1;
-        $custom2 = $request->custom2;
-        $custom3 = $request->custom3;
-        $custom4 = $request->custom4;
-        $remark=$request->remark;
-        $start_time = $request->start_time; //任务开始时间，
-        $tasknum = $request->Tasknum; //本次任务数
-        $taskDay = $request->taskDay; //任务有几天，
+        $pro_url=$request->pro_url;
+        $pro_title=$request->pro_title;
+        $keyword=$request->keyword;
+        $custom1 = $request->custom_1;
+        $custom2 = $request->custom_2;
+        $custom3 = $request->custom_3;
+        $custom4 = $request->custom_4;
+        $tasks_info = $request->tasks_info;
+        $remark = $request->remark ? $request->remark : "无";
+        //先判断任务有几天;
+        $taskDay = $request->taskDay; //任务有几天
+        //在判断任务开始时间
+        $start_time = $request->start_time; //获取开始时间
+        $today = Carbon::now()->toDateString(); //获取当前时间
+        //判断任务开始时间是否是今天
+        $infos=[];
+        if ($today == $start_time && $taskDay == 1) {
+            //开始时间是今天，并且任务只有一天。就吧当前时间之前的订单全部分配到剩下的时间内
+            //获取任务总数
+            $task_Num = Task::getTaskNum($tasks_info);
+
+            //获取当前小时
+            $nowH = getdate()['hours']; //
+            //计算一下当前小时之后有多少个任务;
+            $riftTask = Task::getriftTaskNum($tasks_info, $nowH);
+            //if ($task_Num - $riftTask == 0) {
+                //！=0说明当前时间之前还有任务，要吧当前的任务给平分/随机给之后的时间
+                //获取之前要先获取当前时间到23点的每个时间段的任务数
+                // $nowH_num=array_slice($tasks_info[0]['times'],$nowH);//从当前小时截取
+                //获取$nowH_num共有几个;
+                //$nowH_num_count=count($nowH_num,0);
+                //假设$nowH=20;
+                //生成SQL语句
+                for ($i = $nowH; $i <= 23; $i++) {
+                    $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => getdate()['year'] . "-" . getdate()['mon'] . "-" . getdate()['mday'] . ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
+                }
+                //计算一下当前时间之前有多少个任务，
+                $leftTask = Task::getTaskNum($tasks_info, $nowH);
+                //计算到今天结束还剩下几个小时
+                //假设还剩余20个任务。时间还剩下3个小时。可以选择吧任务全部放在当前小时里面或者平分，居然看业务逻辑.这里全部放入当前小时
+                for($leftI=0;$leftI<=$leftTask;$leftI++){
+                    $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => getdate()['year'] . "-" . getdate()['mon'] . "-" . getdate()['mday'] . ' 0' . $nowH . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
+                }
+            //}
+        }
+
         //获取每个时间段有几个任务
-        $times = $request->times;
+        /*$times = $request->times;
         $infos = array();
         $today = Carbon::now()->toDateString();
-        if ($today == $start_time) {
+        $nowH = getdate()['hours'];
+        if($today==$start_time){
+
+        }
+        for ($i = 0; $i <= 23; $i++) {
+            for ($k = 0; $k <$times[$i]; $k++) {
+                $infos[] = ["user_id"=>$user,"plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => $show, 'start_time' => getdate()['year'] . "-" . getdate()['mon'] . "-" . getdate()['mday'] . ' ' . $i . ':00:00' , 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
+            }
+        }
+        */
+        /*if ($today == $start_time) {
             //当天开启获取当前小时数
             $nowH = getdate()['hours'];
             $nowM = getdate()['minutes'];
@@ -47,32 +95,12 @@ class TaskController extends Controller
             for ($j=$nowH ; $j < $today_num; $j++) {
                 # code...
                 for ($k=0; $k <$times[$j]; $k++){
-                    $infos[] = ['user_id' => $user, "plant" => $plant, 'task' => $task, 'type' => $task, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => $show, 'start_time' =>getdate()['year']."-".getdate()['mon']."-".getdate()['day'],'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
+                    $infos[] = ["plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => $show, 'start_time' =>getdate()['year']."-".getdate()['mon']."-".getdate()['mday'].' '.$nowH.':'.getdate()['minutes'].':'.getdate()['seconds'],'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
                 }
             }
         }
-        /*$tempNum=0;//用于记录数量
-        for ($i=0; $i <=23 ; $i++) { 
-            # code...
-            $tempNum+=$times[$i];
-        }
-        //判断任务数量是否一致
-        if($tasknum!=$tempNum){
-            //假设不一样，退出
-            return false;
-        }*/
-
-        //判断任务是否当天开启
-        if ($today == $start_time) {
-            //当天开启获取当前小时数
-            $nowH = getdate()['hours'];
-            $nowM = getdate()['minutes'];
-            if ($nowM >= 50) {
-                $nowH + 1;
-            }
-            //获取到开始时间为当天，并且有任务开始时间超过现在，吧超过的部分拼接到明天
-
-
-        }
+        */
+        Task::insert($infos);
+        return "创建成功";
     }
 }

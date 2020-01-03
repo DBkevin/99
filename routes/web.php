@@ -27,6 +27,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('order','OrderController@store')->name('order.store');
     Route::get('payment/{order}/alipay', 'OrderController@payByAlipay')->name('payment.alipay'); //支付路由
     Route::get('payment/alipay/return', 'OrderController@alipayReturn')->name('payment.alipay.return');//支付前端回调
+    Route::post('task','TaskController@store')->name('task.store');//新建任务
 });
    Route::post('payment/alipay/notify', 'OrderController@alipayNotify')->name('payment.alipay.notify');//支付后端回调
 

@@ -188,8 +188,13 @@
     </label>
 </br>
     <label for="条件1">
-        附件条件1
-        <input type="text" name="custom_1" id="">
+        附件条件1(文字)
+        <input type="text" name="custom_1[value]" id="">
+    </label>
+    </br>
+    <label for="条件1">
+        附件条件2(id,0免费，1是1个流量，2是2个流量)
+        <input type="text" name="custom_1[key]" id="">
     </label>
 </br>
     <label for="条件2">

@@ -54,8 +54,7 @@ class Task extends Model
         $taskNum = 0;
         $H = $nowH ? $nowH : 23;
         for ($i = 0; $i < $task_info_num; $i++) {
-           $tasks_info[$i]['times'];
-            for ($j =0; $j <= $H; $j++) {
+            for ($j =0; $j < $H; $j++) {
                 $tasks_info[$i]['times'][$j];
                 $taskNum += $tasks_info[$i]['times'][$j];
             }
@@ -88,7 +87,7 @@ class Task extends Model
             '],   
     *   ];
     */
-    static public function getRiftTaskNum($tasks_info, $nowH)
+    static public function getAfterTaskNum($tasks_info, $nowH)
     {
         $task_info_num = count($tasks_info, 0); //获取tasks_info一共有几个//10
         $taskNum = 0;

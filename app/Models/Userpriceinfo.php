@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserPriceInfo extends Model
+class Userpriceinfo extends Model
 {
     //修改表名
     protected $table='users_price_info';
@@ -20,6 +20,6 @@ class UserPriceInfo extends Model
      */
     public function users()
     {
-        return $this->belongsTo('User', 'users_id');
+        return $this->belongsTo(User::class, 'users_id');
     }
 }

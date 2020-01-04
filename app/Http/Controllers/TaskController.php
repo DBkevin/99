@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use Carbon\Carbon;
+use App\models\User;
 
 class TaskController extends Controller
 {
@@ -32,8 +33,14 @@ class TaskController extends Controller
         $remark = $request->remark ? $request->remark : "无";
         //先判断任务有几天;
         $taskDay = $request->taskDay; //任务有几天
-        //计算任务价格
-    
+       //获取任务总数
+        $task_Num = Task::getTaskNum($tasks_info);
+        $total_tasks=$taskDay* $task_Num;
+        dd('任务总数'.$task_Num,'天数'.$taskDay,'累计数量'.$total_tasks);
+        $total_tasks_num=Task::getPrice($plant,$type,$total_tasks,$user,$custom1_key);
+        if($total_tasks_num==false){
+            return back()->withErrors('账户余额不足')->withInput();
+        }
         //在判断任务开始时间
         $start_time = $request->start_time; //获取开始时间
         $today = Carbon::now()->toDateString(); //获取当前时间
@@ -131,42 +138,22 @@ class TaskController extends Controller
                 }
             }
         }
-
-        //获取每个时间段有几个任务
-        /*$times = $request->times;
-        $infos = array();
-        $today = Carbon::now()->toDateString();
-        $nowH = getdate()['hours'];
-        if($today==$start_time){
-
-        }
-        for ($i = 0; $i <= 23; $i++) {
-            for ($k = 0; $k <$times[$i]; $k++) {
-                $infos[] = ["user_id"=>$user,"plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => $show, 'start_time' => getdate()['year'] . "-" . getdate()['mon'] . "-" . getdate()['mday'] . ' ' . $i . ':00:00' , 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
-            }
-        }
-        */
-        /*if ($today == $start_time) {
-            //当天开启获取当前小时数
-            $nowH = getdate()['hours'];
-            $nowM = getdate()['minutes'];
-            if ($nowM >= 50) {
-                $nowH + 1;
-            }
-            //拼接当天当前小时之后的任务数
-            $today_num=0;
-            for ($i=$nowH; $i <=23 ; $i++) { 
-                $today_num[$i]=$times[$i];
-            }
-            for ($j=$nowH ; $j < $today_num; $j++) {
-                # code...
-                for ($k=0; $k <$times[$j]; $k++){
-                    $infos[] = ["plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => $show, 'start_time' =>getdate()['year']."-".getdate()['mon']."-".getdate()['mday'].' '.$nowH.':'.getdate()['minutes'].':'.getdate()['seconds'],'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
-                }
-            }
-        }
-        */
-        Task::insert($infos);
+       // 开启一个数据库事务,确保下单和扣款都成功；
+        \DB::transaction(function () use ($user, $infos,$total_tasks_num,$total_tasks) {
+            Task::insert($infos);
+            $user=User::where('id',$user)->first();
+            $user->update([
+                'tokens'=>$user->tokens-$total_tasks_num,
+            ]);
+            $user->save();
+            $price_info=$user->prices()->make([
+                'type'=>1,
+                'price'=>$total_tasks_num,
+                'remark'=>"发布任务".$total_tasks."个。扣除",
+            ]);
+            $price_info->users()->associate($user->id);
+            $price_info->save();
+        });
         return "创建成功";
     }
 }

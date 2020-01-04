@@ -6,7 +6,7 @@
     <title>@yield('title' ) - 人气</title>
     <link rel="stylesheet" type="text/css" href="/css/iconfont.css">
     <link rel="stylesheet" type="text/css" href="/css/header_silder.css">
-    <script  type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+    <script  type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
     @yield('styles')
   </head>
   <body>

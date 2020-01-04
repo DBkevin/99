@@ -29,6 +29,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('payment/alipay/return', 'OrderController@alipayReturn')->name('payment.alipay.return');//支付前端回调
     Route::post('task','TaskController@store')->name('task.store');//新建任务
     Route::get('pdd/create','TaskController@pddindex')->name('pdd.index');
+    Route::get('rates','RatesController@index')->name('rates.index');
 });
    Route::post('payment/alipay/notify', 'OrderController@alipayNotify')->name('payment.alipay.notify');//支付后端回调
 

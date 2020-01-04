@@ -40,6 +40,6 @@ class User extends Authenticatable
      * 关联price_info表，1对多关联
      */
     public function prices(){
-        return  $this->hasMany('UserPriceInfo','users_id');
+        return  $this->hasMany(Userpriceinfo::class,'users_id');
     }
 }

@@ -15,5 +15,6 @@
       @yield('content')
     </div>
   </body>
+    <script  type="text/javascript" src="/js/commen.js"></script>
    @yield('scripts')
 </html>

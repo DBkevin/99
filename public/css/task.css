@@ -1,0 +1,341 @@
+.fn-item{
+    align-items: center;
+    margin-bottom: 10px;
+}
+.fn-title{
+    margin-right: 12px;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    font-size: 14px;
+    color: #666;
+}
+/* 任务类型 */
+.fn-taskType{
+    padding: 0 24px;
+    height: 38px;
+    line-height: 38px;
+    background-color: #fff;
+    color: #666;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-right: none;
+    cursor: pointer;
+}
+.fn-taskType:last-of-type{
+    border-right: 1px solid #ccc;
+}
+.choosen-taskType{
+    color: #fff;
+    background-color: #1799ea;
+    border-color: #1799ea;
+}
+/* 商品标题、商品链接 */
+.productURL,
+.productTitle{
+    padding: 0 5px;
+    min-width: 925px;
+    height: 35px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+/* 加减号按钮 */
+.add-keyword-wrap{
+    align-items: flex-start;
+}
+.add-keyword-wrap-title{
+    flex-direction: column;
+    align-items: flex-end;
+    width: 80px;
+    height: auto;
+}
+.operateBtn{
+    margin-bottom: 15px;
+    width: 42px;
+    height: 42px;
+    text-align: center;
+    line-height: 36px;
+    color: #1799ea;
+    border-radius: 50%;
+    border: 1px solid #1799ea;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.reduce{
+    background: #1799ea;
+    color: #fff;
+}
+/* 关键词1 */
+.keyword-box{
+    padding: 10px;
+    width: 915px;
+    height: 240px;
+    border: 1px solid #1799ea;
+}
+
+.aboutProduct .title{
+    width: 80px;
+    height: 35px;
+    text-align: right;
+    line-height: 35px;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #666;
+}
+.product-info{
+    margin-bottom: 15px;
+    align-items: center;
+}
+.traffic .flex{
+    align-items: center;
+}
+.keyword{
+    width: 800px;
+    height: 35px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+}
+.traffic-input{
+    margin-right: 5px;
+    padding: 0 5px;
+    height: 35px;
+    border: 1px solid #ccc;
+}
+.dayTraffic-num{
+    width: 500px;
+}
+.icon-des{
+    font-size: 28px;
+    color: rgb(37, 115, 206);
+}
+.descript{
+    display: none;
+}
+.time-dis-container{
+    flex-wrap: wrap;
+    width: 612px;
+    height: 118px;
+}
+.time-dis-item{
+    flex-direction: column;
+    align-items: center;
+
+    width: 42px;
+    height: 50px;
+    font-size: 14px;
+    color: #1799ea;
+    background-color: #fff;
+    border: 1px solid #1799ea;
+    margin: 0 7px 7px 0;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+.time,
+.dis-num{
+    width: 42px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 12px;
+}
+.time{
+    background-color: #1799ea;
+    color: #fff;
+}
+.dis-num{
+    color: #1799ea;
+    border: none;
+    outline: none;
+}
+.dis{
+    overflow: hidden;
+}
+
+
+/* 分配按钮 */
+.time-dis-btn{
+    margin-left: 90px;
+    align-items: center;
+}
+.time-dis-btn>button{
+    margin-right: 5px;
+    padding: 1px 6px;
+    width: 111px;
+    height: 31px;
+    text-align: center;
+    line-height: 31px;
+    border: 1px solid #1799ea;
+    font-size: 13px;
+    color: #1799ea;
+    background-color: #fff;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+.time-dis-btn>div{
+    font-size: 14px;
+    color: #666;
+}
+
+/* 自定义要求 */
+.custom{
+    padding: 18px;
+    width: 899px;
+    height: 160px;
+    color: #666;
+    background-color: #f6f6f6;
+    font-size: 14px;
+    border: 1px solid #ccc;
+
+    flex-wrap: wrap;
+    align-items: center;
+}
+.custom-item{
+    width: 380px;
+    height: 35px;
+    line-height: 35px;
+    margin-right: 30px;
+}
+.custom-item-title{
+    width: 70px;
+    height: 35px;
+    margin-right: 10px;
+}
+.custom-dropdown>select{
+    padding: 0 10px 0 15px;
+    width: 265px;
+    height: 35px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    z-index: 1;
+}
+.custom-dropdown>select>option{
+    height: 34px;
+    font-size: 14px;
+}
+
+/* 发布天数 */
+.releaseday{
+    align-items: center;
+}
+.days{
+    margin-right: 5px;
+    padding: 0 5px;
+    width: 300px;
+    height: 35px;
+    border: 1px solid #ccc;
+}
+.fixed-days{
+    margin-left: 10px;
+    width: 80px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    color: #1799ea;
+    background-color: #fff;
+    border: 1px solid #1799ea;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* 开始时间 */
+.fn-item>.calendar{
+    /* padding: 0 10px; */
+    position: relative;
+    width: 400px;
+    height: 33px;
+    text-align: center;
+    line-height: 33px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #606266;
+    z-index: 1;
+}
+.fn-item>.calendar>.iconfont{
+    font-size: 14px;
+    margin-right: 8px;
+}
+.form_datetime{
+    width: 100%;
+    padding: 0;
+}
+#StartTime{
+    display: block;
+    padding: 0;
+    height: 30px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+.input-group-addon{
+    visibility: hidden;
+}
+.icon-calendar{
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+/* 备注 */
+.remark{
+    padding: 0 5px;
+    width: 925px;
+    height: 35px;
+    border: 1px solid #ccc;
+}
+
+/* 发布任务按钮 */
+.btn-wrap{
+    margin-left: 90px;
+}
+.btn-wrap>button{
+    width: 138px;
+    height: 43px;
+    text-align: center;
+    line-height: 43px;
+    font-size: 18px;
+    border: 1px solid #1799ea;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.release{
+    background-color: #1799ea;
+    color: #fff;
+}
+.cancel{
+    background-color: #fff;
+    color: #1799ea;
+}
+
+/* 注意事项 */
+.attentions{
+    margin-left: 90px;
+    padding: 20px;
+    width: 895px;
+    height: 120px;
+    border: 1px solid #1799ea;
+    background-color: #f9fbfd;
+    color: #666;
+    font-size: 14px;
+}
+.attentions span{
+    color: #1799ea;
+}
+
+/* footer */
+.footer{
+    border-top: 1px solid #ccc;
+    padding: 15px 0;
+    justify-content: center;
+}

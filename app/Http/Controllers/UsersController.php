@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UpPasswdRequest;
 use App\Http\Requests\LoginRequest;
+use App\Models\Task;
 
 class UsersController extends Controller
 {
@@ -17,7 +18,8 @@ class UsersController extends Controller
     {
         $user=Auth::user();
         $this->authorize('isme', $user);//确定是用户本人
-        return view('users.show', compact('user'));
+        $pdd=Task::where('user_id',$user->id)->where('plant','拼多多任务')->count();
+        return view('users.show', compact('user','pdd'));
     }
     //重置密码页面
     public function restpasswd(){
@@ -78,5 +80,8 @@ class UsersController extends Controller
             // 登录失败后的相关操作
            return back()->withErrors('电话和密码不匹配','phone');
         }
+    }
+    public function modifyPassword(){
+        return view("users.modifypassword");
     }
 }

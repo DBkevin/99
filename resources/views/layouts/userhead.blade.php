@@ -22,15 +22,17 @@
             <div class="balance flex">
                 <span class="balance-name">流量币：</span>
                 <span class="balance-left">{{Auth::user()->tokens}}</span>
-                <div class="recharge">充值</div>
+                <div class="recharge"><a href="{{route('post.show')}}" style="color:#fff;">充值</a></div>
             </div>
         </div>
 
         <div class="header-right flex">
             <div class="charging">
+            <a href="{{route('rates.index')}}">
                 <div class="charge-illustration">
                     任务扣费标准
                 </div>
+            </a>
             </div>
             <div class="weChat">
                 <i class="iconfont iconfont-weChat">&#xe617;</i>
@@ -40,9 +42,11 @@
             </div>
             <div class="reset">
                 <i class="iconfont iconfont-lock">&#xe60d;</i>
+                <a href="{{route('modify-password')}}">
                 <div class="reset-pwd">
                     修改密码
                 </div>
+                </a>
             </div>
             <div class="exit">
                 <i class="iconfont iconfont-exit">&#xe6b2;</i>
@@ -90,4 +94,17 @@
                 <span>视频教学</span>
             </li>
         </ul>
+    </div>
+    <div class="QRcode-wrap">
+        <div class="code-container">
+            <div class="QRcode-title flex">
+                <span class="code-title">微信客服咨询</span>
+                <span class="close">×</span>
+            </div>
+            <div class="QR-code flex">
+                <img src="/images/qrcode.jpg" alt="">
+            </div>
+            <p class="flex">客服微信号:renqi99-10</p>
+        </div>
+
     </div>

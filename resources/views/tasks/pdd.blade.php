@@ -1,227 +1,407 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="/js/jquery.js"></script>
-    <title>Document</title>
-</head>
-<body>
-<form action="{{route('task.store')}}" method="post">
-    @csrf
-    <label for="任务来源">
-        任务来源
-        <input type="text" name="plant" id="">
-    </label>
-</br>
-    <label for="任务类型">
-        任务类型
-        <input type="text" name="task" id="">
-    </label>
-</br>
-    <label for="任务类型App流量">
-        任务类型App流量
-        <input type="text" name="type" id="">
-    </label>
-</br>
-    <label for="商品链接">
-        商品链接
-        <input type="text" name="pro_url" id="">
-    </label>
-</br>
-    <label for="商品标题">
-        商品标题
-        <input type="text" name="pro_title" id="">
-    </label>
-</br>
-    <label for="商品关键字">
-        商品关键字
-        <input type="text" name="keyword" id="">
-    </label>
-    <label for="商品备注">
-        商品备注
-        <input type="text" name="remark" id="">
-    </label>
-</br>
-     <label for="0点">
-         0
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="1点">
-         1
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="2点">
-         2
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="3点">
-         3
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="4点">
-         4
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="5点">
-         5
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="6点">
-         6
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="7点">
-         7
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="8点">
-         8
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="9点">
-         9
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="10点">
-         10
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="11">
-         11
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="12">
-         12
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="13">
-         13
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="14">
-         14
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="15">
-         15
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="16">
-         16
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="17">
-         17
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="18">
-         18
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="19">
-         19
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="20">
-         20
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="21">
-         21
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="22">
-         22
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-     <label for="23">
-         23
-        
-        <input type="number" name="tasks_info[0][times][]" id="">
-    </label>
-</br>
-    <label for="条件1">
-        附件条件1(文字)
-        <input type="text" name="custom_1[value]" id="">
-    </label>
-    </br>
-    <label for="条件1">
-        附件条件2(id,0免费，1是1个流量，2是2个流量)
-        <input type="text" name="custom_1[key]" id="">
-    </label>
-</br>
-    <label for="条件2">
-        附件条件2
-        <input type="text" name="custom_2" id="">
-    </label>
-</br>
-    <label for="条件3">
-        附件条件3
-        <input type="text" name="custom_3" id="">
-    </label>
-</br>
-    <label for="条件4">
-        附件条件4
-        <input type="text" name="custom_4" id="">
-    </label>
-</br>
-<label for="任务开始时间">
-    任务开始时间
-    <input type="text" name="start_time" id="">
-</label>
-</br>
-  <label for="发布几天">
-      任务有几天
-        <input type="text" name="taskDay" id="">
-    </label>
-    <button type="submit">提交</button>
-</form>
-</body>
-</html>
+@extends('layouts.user')
+@section('title', '拼多多任务发布')
+@section('styles')
+<link rel="stylesheet" href="/css/task.css">
+<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+@stop
+@section('content')
+<div class="content">
+    <ul class="tab-container flex">
+        <li class="tab-item flex tab-item-active">流量任务</li>
+        <li class="tab-item flex">收藏任务</li>
+    </ul>
+
+    <!-- 选项卡1：流量任务 -->
+    <div class="task">
+        <form action="{{route('task.store')}}" method="post" id="">
+            <input type="hidden" name="plant" value="拼多多任务" />
+            <input type="hidden" name="task" value="" />
+            <input type="hidden" name="type" value="" />
+            <ul class="fn-container">
+                <li class="fn-item flex">
+                    <div class="fn-title">任务类型</div>
+                    <ul class="fn-taskType-wrap flex">
+                        <li class="fn-taskType choosen-taskType">
+                            APP流量
+                        </li>
+                    </ul>
+                </li>
+                <li class="fn-item flex">
+                    <div class="fn-title">商品链接</div>
+                    <div class="fn-fn">
+                        <input type="text" name="pro_url" class="productURL"
+                            placeholder="请手动输入正确的请正淘宝/天猫/拼多多商品链接，输入错误链接会导致发布失败" />
+                    </div>
+                </li>
+                <li class="fn-item flex">
+                    <div class="fn-title">商品标题</div>
+                    <div class="fn-fn">
+                        <input type="text" name="pro_title" class="productTitle"
+                            placeholder="请手动填写宝贝链接的商品全标题，商品链接与标题不匹配将导致任务发布失败" />
+                    </div>
+                </li>
+                <li class="add-keyword-wrap fn-item flex">
+                    <div class="add-keyword-wrap-title fn-title flex">
+                        <!--<div class="add operateBtn">+</div>
+                                <div class="reduce operateBtn">-</div>
+                                -->
+                    </div>
+
+                    <div class="keyword-box fn-fn">
+                        <ul class="aboutProduct">
+                            <li class="key product-info flex">
+                                <div class="title">关键词1</div>
+                                <input type="text" name="keyword" class="keyword"
+                                    placeholder="关键词必须为标题内含有文字，且区分字母大小写" />
+                            </li>
+                            <li class="traffic product-info flex">
+                                <div class="title">每天发布量</div>
+                                <div class="day-traffic flex">
+                                    <input type="text" name="day-traffic" class="dayTraffic-num traffic-input"
+                                        value="100" />
+                                    <span class="iconfont icon-des">&#xe616;</span>
+                                    <div class="dayTraffic-des descript">
+                                        访客（当天流量24小时细分如安排在开始时间之前的时间段将自动补量，请合理安排）
+                                    </div>
+                                </div>
+                            <li class="time-dis product-info flex">
+                                <div class="title">24小时细分</div>
+                                <ul class="time-dis-container flex">
+                                    <li class="time-dis-item flex">
+                                        <span class="time">0点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">1点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">2点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">3点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">4点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">5点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">6点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">7点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">8点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">9点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">10点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">11点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">12点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">13点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">14点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">15点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">16点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">17点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">18点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">19点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">20点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">21点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">22点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                    <li class="time-dis-item flex">
+                                        <span class="time">23点</span>
+                                        <span class="dis">
+                                            <input type="text" name="tasks_info[0][times][]" class="dis-num"
+                                                value="0" />
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="fn-item flex">
+                    <div class="time-dis-btn fn-fn flex">
+                        <button class="morningBtn">0点-7点不分配</button>
+                        <button class="afternoonBtn">24小时分配</button>
+                        <div>
+                            (当天流量24小时细分如安排在开始时间之前的时间段将自动补量，请合理安排)
+                        </div>
+                    </div>
+                </li>
+                <li class="fn-item flex">
+                    <div class="fn-title">自定义要求</div>
+                    <div class="custom fn-fn flex">
+                        <div class="custom-item flex">
+                            <span class="custom-item-title">停留时间</span>
+                            <div class="custom-dropdown dropdown flex">
+                                <select name="custom_1[key]" id="stayTime">
+                                    <option value="100-180" selected>100秒-180秒（免费赠送）</option>
+                                    <option value="180-280">180秒-280秒(1流量币)</option>
+                                    <option value="280-380">280秒-380秒(2流量币)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="custom-item flex">
+                            <span class="custom-item-title">浏览副宝贝</span>
+                            <div class="custom-dropdown dropdown flex">
+                                <select name="custom_2" id="viceProduct">
+                                    <option value="noread">不要浏览</option>
+                                    <option value="randomread" selected>随即浏览</option>
+                                    <option value="deepread">深度浏览</option>
+                                </select>
+                                <!-- <span class="iconfont">&#xe7a5;</span> -->
+                            </div>
+                        </div>
+                        <div class="custom-item flex">
+                            <span class="custom-item-title">4G比例</span>
+                            <div class="custom-dropdown dropdown flex">
+                                <select name="custom_3" id="4G">
+                                    <option value="30%" selected>30%(全体免费赠送)</option>
+                                    <option value="50%">50%(全体免费赠送)</option>
+                                    <option value="80%">80%(全体免费赠送)</option>
+                                    <option value="100%">100%(全体免费赠送)</option>
+                                </select>
+                                <!-- <span class="iconfont">&#xe7a5;</span> -->
+                            </div>
+                        </div>
+                        <div class="custom-item flex">
+                            <span class="custom-item-title">查看评价</span>
+                            <div class="custom-dropdown dropdown flex">
+                                <select name="custom_4" id="checkEvalu">
+                                    <option value="check" selected>查看</option>
+                                    <option value="nocheck">不查看</option>
+                                </select>
+                                <!-- <span class="iconfont">&#xe7a5;</span> -->
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="fn-item flex">
+                    <div class="fn-title">发布天数</div>
+                    <div class="releaseday fn-fn flex">
+                        <input type="text" name="taskDay" class="days" value="1" />天
+                        <div class="seven fixed-days" data-day="7">7天</div>
+                        <div class="half-month fixed-days" data-day="15">15天</div>
+                        <div class="month fixed-days" data-day="30">30天</div>
+                    </div>
+                </li>
+                <li class="fn-item flex">
+                    <div class="fn-title">开始时间</div>
+                    <div class="calendar fn-fn dropdown flex">
+                        <div class="input-group date form_datetime col-md-12" data-date-format="yyyy-mm-dd"
+                            data-link-field="dtp_input1">
+                            <input name="start_time" id="StartTime" class="form-control" size="16" type="text" readonly>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </span>
+                        </div>
+                        <span class="iconfont icon-calendar">&#xe627;</span>
+                    </div>
+                </li>
+                <li class="fn-item flex">
+                    <div class="fn-title">备注</div>
+                    <div class="remarks-wrap fn-fn">
+                        <input type="text" name="remark" class="remark" />
+                    </div>
+                </li>
+                <li class="fn-item flex">
+                    <div class="btn-wrap fn-fn">
+                        <button type="submit" class="release">发布任务</button>
+                        <button class="cancel">取消</button>
+                    </div>
+                </li>
+                <li class="fn-item">
+                    <div class="attentions fn-fn">
+                        <p>
+                            任务时长
+                            <span class="task-days">1</span>
+                            天, 共计发布
+                            <span class="task-num">100</span>
+                            个任务
+                        </p>
+                        <p>
+                            单个任务消耗
+                            <span class="single-task-cost">60</span>
+                            流量币 合计消耗：
+                            <span class="task-totalCost prize-unit">6000</span>
+                            流量币
+                        </p>
+                        <p>
+                            vip会员合计消费：
+                            <span class="task-vipTotalCost prize-unit">4000</span>
+                            流量币，升级vip会员优惠更多!
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer flex">
+        xxxx版权所有 | 粤ICP备99999999号
+    </div>
+</div>
+@stop
+@section('scripts')
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script src="/js/task.js"></script>
+<script type="text/javascript">
+    $('#StartTime').datetimepicker({
+            language: 'zh-CN',
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            initialDate: new Date(),//初始化当前日期
+            startDate:new Date(),
+            format: 'yyyy-mm-dd',//格式化想要显示的时间格式
+            minView: 'month'//日期时间选择器所能够提供的最精确的时间选择视图。
+        });
+        $('#StartTime').val(dateFormat('YYYY-mm-dd',new Date()));
+    function dateFormat(fmt, date) {
+    let ret;
+    let opt = {
+        "Y+": date.getFullYear().toString(),        // 年
+        "m+": (date.getMonth() + 1).toString(),     // 月
+        "d+": date.getDate().toString(),            // 日
+        "H+": date.getHours().toString(),           // 时
+        "M+": date.getMinutes().toString(),         // 分
+        "S+": date.getSeconds().toString()          // 秒
+        // 有其他格式化字符需求可以继续添加，必须转化成字符串
+    };
+    for (let k in opt) {
+        ret = new RegExp("(" + k + ")").exec(fmt);
+        if (ret) {
+            fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
+        };
+    };
+    return fmt;
+}
+
+       
+</script>
+@stop

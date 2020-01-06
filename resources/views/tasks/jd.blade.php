@@ -1,5 +1,5 @@
 @extends('layouts.user')
-@section('title', '拼多多任务发布')
+@section('title', '京东任务发布')
 @section('styles')
 <link rel="stylesheet" href="/css/task.css">
 <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -10,20 +10,20 @@
     @include('shared._messages')
     <ul class="tab-container flex">
         <li class="tab-item flex tab-item-active">
-            <a href="/">
+            <a href="javascript:void(0);">
                 流量任务
             </a>
         </li>
         <li class="tab-item flex">
-            <a href="{{route('pdd.shouchang')}}">
-                收藏任务
+            <a href="{{route('jd.shouchang')}}">
+              收藏任务
             </a>
         </li>
     </ul>
     <div class="task">
         <form action="{{route('task.store')}}" method="post" id="">
             @csrf
-            <input type="hidden" name="plant" value="拼多多任务" />
+            <input type="hidden" name="plant" value="京东任务" />
             <input type="hidden" name="task" value="" />
             <input type="hidden" name="type" value="" />
             <ul class="fn-container">

@@ -8,22 +8,23 @@
 @section('content')
 <div class="content">
     @include('shared._messages')
+    @include('shared._errors')
     <ul class="tab-container flex">
-        <li class="tab-item flex tab-item-active">
-            <a href="/">
+        <li class="tab-item flex ">
+            <a href="{{route('tb.index')}}">
                 流量任务
             </a>
         </li>
-        <li class="tab-item flex">
-            <a href="{{route('pdd.shouchang')}}">
+        <li class="tab-item flex  tab-item-active" >
+            <a href="javascript:void(0)">
                 收藏任务
-            </a>
+           </a>
         </li>
     </ul>
     <div class="task">
         <form action="{{route('task.store')}}" method="post" id="">
             @csrf
-            <input type="hidden" name="plant" value="拼多多任务" />
+            <input type="hidden" name="plant" value="淘宝任务" />
             <input type="hidden" name="task" value="" />
             <input type="hidden" name="type" value="" />
             <ul class="fn-container">
@@ -31,8 +32,8 @@
                     <div class="fn-title">任务类型</div>
                     <ul class="fn-taskType-wrap flex">
                         <li class="fn-taskType choosen-taskType">
-                            <a href="/">
-                                APP流量
+                            <a href="javascript:void(0);">
+                               搜索收藏
                             </a>
                         </li>
                     </ul>

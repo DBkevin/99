@@ -28,7 +28,12 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('payment/{order}/alipay', 'OrderController@payByAlipay')->name('payment.alipay'); //支付路由
     Route::get('payment/alipay/return', 'OrderController@alipayReturn')->name('payment.alipay.return');//支付前端回调
     Route::post('task','TaskController@store')->name('task.store');//新建任务
-    Route::get('pdd/create','TaskController@pddindex')->name('pdd.index');
+    Route::get('pdd/create','TaskController@pddindex')->name('pdd.index');//PDD新建
+    Route::get('pdd/shouchang-create','TaskController@pddshouchang')->name('pdd.shouchang');//PDD收藏
+    Route::get('JD/create','TaskController@jdindex')->name('jd.index');//jd新建
+    Route::get('JD/shouchang-create','TaskController@jdshouchang')->name('jd.shouchang');//jd收藏
+    Route::get('tb/create','TaskController@tbindex')->name('tb.index');//PDD新建
+    Route::get('tb/shouchang-create','TaskController@tbshouchang')->name('tb.shouchang');//PDD新建
     Route::get('rates','RatesController@index')->name('rates.index');//
     Route::get("modify-password","UsersController@modifyPassword")->name('modify-password');
 });

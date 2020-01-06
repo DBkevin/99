@@ -1,5 +1,5 @@
 @extends('layouts.user')
-@section('title', '拼多多任务发布')
+@section('title', '淘宝任务发布')
 @section('styles')
 <link rel="stylesheet" href="/css/task.css">
 <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -15,7 +15,7 @@
             </a>
         </li>
         <li class="tab-item flex">
-            <a href="{{route('pdd.shouchang')}}">
+            <a href="{{route('tb.shouchang')}}">
                 收藏任务
             </a>
         </li>
@@ -23,7 +23,7 @@
     <div class="task">
         <form action="{{route('task.store')}}" method="post" id="">
             @csrf
-            <input type="hidden" name="plant" value="拼多多任务" />
+            <input type="hidden" name="plant" value="淘宝任务" />
             <input type="hidden" name="task" value="" />
             <input type="hidden" name="type" value="" />
             <ul class="fn-container">
@@ -51,8 +51,8 @@
                 </li>
                 <li class="add-keyword-wrap fn-item flex">
                     <div class="add-keyword-wrap-title fn-title flex">
-                        <div class="add operateBtn">+</div>
-                        <div class="reduce operateBtn">-</div>
+                        <!--<div class="add operateBtn">+</div>
+                        <div class="reduce operateBtn">-</div>-->
                     </div>
                     <div class="keyword-box fn-fn">
                         <ul class="aboutProduct">

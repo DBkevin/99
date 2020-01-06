@@ -9,15 +9,15 @@
 <div class="content">
     @include('shared._messages')
     <ul class="tab-container flex">
-        <li class="tab-item flex tab-item-active">
-            <a href="/">
+        <li class="tab-item flex ">
+            <a href="{{route('pdd.index')}}">
                 流量任务
             </a>
         </li>
-        <li class="tab-item flex">
-            <a href="{{route('pdd.shouchang')}}">
+        <li class="tab-item flex  tab-item-active" >
+            <a href="javascript:void(0)">
                 收藏任务
-            </a>
+           </a>
         </li>
     </ul>
     <div class="task">
@@ -31,8 +31,8 @@
                     <div class="fn-title">任务类型</div>
                     <ul class="fn-taskType-wrap flex">
                         <li class="fn-taskType choosen-taskType">
-                            <a href="/">
-                                APP流量
+                            <a href="javascript:void(0);">
+                               搜索收藏
                             </a>
                         </li>
                     </ul>

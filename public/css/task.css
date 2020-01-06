@@ -27,9 +27,17 @@
     border-right: 1px solid #ccc;
 }
 .choosen-taskType{
-    color: #fff;
     background-color: #1799ea;
     border-color: #1799ea;
+}
+.fn-taskType>a{
+    color: #666;
+}
+.fn-taskType>a:hover{
+    text-decoration: none;
+}
+.choosen-taskType>a{
+    color: #fff;
 }
 /* 商品标题、商品链接 */
 .productURL,

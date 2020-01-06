@@ -1,18 +1,17 @@
     <!-- header -->
-    <header class="header flex">
+    <header class="header flex" style="z-index:1;">
         <div class="header-left flex">
             <!-- logo -->
             <a href="/" class="logo  flex">
-                <img src="/images/logo.png" alt=""
-                    class="logo-img" />
+                <img src="/images/logo.png" alt="" class="logo-img" />
             </a>
             <div class="member-message flex">
-            <div class="member-level">
-                @if(Auth::user()->level==0)
+                <div class="member-level">
+                    @if(Auth::user()->level==0)
                     普通
-                @else
+                    @else
                     VIP
-                @endif
+                    @endif
                 </div>
                 <div class="member-info flex">
                     会员
@@ -28,11 +27,11 @@
 
         <div class="header-right flex">
             <div class="charging">
-            <a href="{{route('rates.index')}}">
-                <div class="charge-illustration">
-                    任务扣费标准
-                </div>
-            </a>
+                <a href="{{route('rates.index')}}">
+                    <div class="charge-illustration">
+                        任务扣费标准
+                    </div>
+                </a>
             </div>
             <div class="weChat">
                 <i class="iconfont iconfont-weChat">&#xe617;</i>
@@ -43,9 +42,9 @@
             <div class="reset">
                 <i class="iconfont iconfont-lock">&#xe60d;</i>
                 <a href="{{route('modify-password')}}">
-                <div class="reset-pwd">
-                    修改密码
-                </div>
+                    <div class="reset-pwd">
+                        修改密码
+                    </div>
                 </a>
             </div>
             <div class="exit">
@@ -57,42 +56,53 @@
         </div>
 
     </header>
-
     <!-- slider -->
     <div class="slider">
+        <style>
+            .slider-wrap a {
+                color: #fff;
+            }
+        </style>
+
         <ul class="slider-wrap">
-            <li class="slider-item">
-                <i class="iconfont">&#xe626;</i>
-                <span>会员中心</span>
-            </li>
-            <li class="slider-item">
-                <i class="iconfont">&#xe633;</i>
-                <span>淘宝任务</span>
-            </li>
-            <li class="slider-item">
-                <i class="iconfont">&#xe812;</i>
-                <span>京东任务</span>
-            </li>
-            <li class="slider-item">
-                <i class="iconfont">&#xe6a4;</i>
-                <span>拼多多任务</span>
-            </li>
-            <li class="slider-item">
-                <i class="iconfont">&#xe604;</i>
-                <span>任务查询</span>
-            </li>
-            <li class="slider-item">
-                <i class="iconfont">&#xe61d;</i>
-                <span>推广中心</span>
-            </li>
-            <li class="slider-item slider-item-active">
-                <i class="iconfont">&#xe68c;</i>
-                <span>账户充值</span>
-            </li>
-            <li class="slider-item">
-                <i class="iconfont">&#xe667;</i>
-                <span>视频教学</span>
-            </li>
+            <a href="{{route('users.show')}}" target="_self">
+                <li class="slider-item ">
+                    <i class="iconfont">&#xe626;</i>
+                    <span>会员中心</span>
+                </li>
+                <a href="{{route('tb.index')}}" target="_self">
+                    <li class="slider-item">
+                        <i class="iconfont">&#xe633;</i>
+                        <span>淘宝任务</span>
+                    </li>
+                </a>
+                <a href="{{route('jd.index')}}" target="_self">
+                    <li class="slider-item">
+                        <i class="iconfont">&#xe812;</i>
+                        <span>京东任务</span>
+                    </li>
+                </a>
+                <a href="{{route('pdd.index')}}" target="_self">
+                    <li class="slider-item">
+                        <i class="iconfont">&#xe6a4;</i>
+                        <span>拼多多任务</span>
+                    </li>
+                </a>
+
+                <li class="slider-item">
+                    <i class="iconfont">&#xe604;</i>
+                    <span>任务查询</span>
+                </li>
+                <a href="{{route('post.show')}}" target="_self">
+                    <li class="slider-item ">
+                        <i class="iconfont">&#xe68c;</i>
+                        <span>账户充值</span>
+                    </li>
+                </a>
+                <li class="slider-item">
+                    <i class="iconfont">&#xe667;</i>
+                    <span>视频教学</span>
+                </li>
         </ul>
     </div>
     <div class="QRcode-wrap">

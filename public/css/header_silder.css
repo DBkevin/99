@@ -6,8 +6,43 @@
 
     list-style: none;
 
-    text-decoration: none;
+    text-decoration: none !important;
 
+}
+/*包含以下四种的链接*/
+a {
+    text-decoration: none !important ;
+}
+/*正常的未被访问过的链接*/
+a:link {
+    text-decoration: none !important;
+}
+/*已经访问过的链接*/
+a:visited {
+    text-decoration: none !important;
+}
+/*鼠标划过(停留)的链接*/
+a:hover {
+    text-decoration: none !important;
+}
+/* 正在点击的链接*/
+a:active {
+    text-decoration: none !important;
+}
+.slider a{
+    text-decoration: none !important ;
+}
+.slider a:link{
+    text-decoration: none !important ;
+}
+.slide a:visited{
+    text-decoration: none !important ;
+}
+.slide a:hover{
+    text-decoration: none !important ;
+}
+.slide a:active{
+    text-decoration: none !important ;
 }
 
 .iconfont{

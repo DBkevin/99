@@ -17,7 +17,7 @@
                                     <span class="iconfont icon-task">&#xe604;</span>
                                     <div class="tasking-title">
                                         <p><span>淘宝任务</span>（进行中）</p>
-                                        <span class="tasking-num">0</span>单
+                                        <span class="tasking-num">{{$tb}}</span>单
                                     </div>
                                 </div>
                                 <div class="check-task flex">
@@ -30,7 +30,7 @@
                                     <span class="iconfont icon-task">&#xe604;</span>
                                     <div class="tasking-title">
                                         <p><span>京东任务</span>（进行中）</p>
-                                        <span class="tasking-num">0</span>单
+                                        <span class="tasking-num">{{$jd}}</span>单
                                     </div>
                                 </div>
                                 <div class="check-task flex">

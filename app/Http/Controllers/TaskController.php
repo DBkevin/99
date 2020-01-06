@@ -199,8 +199,25 @@ class TaskController extends Controller
         $plant = $request->input('plant');
         $type = $request->input('type');
         $status = $request->input('status');
-        $tasks = Task::where('user_id', \Auth::id())->where('plant', $plant)->where('type', $type)->where('status', $status)->get();
+        $tasks = Task::where('user_id', \Auth::id())
+            ->when($plant,function($query,$plant){
+                return $query->where('plant',$plant);
+            })
+            ->when($type,function ($query,$type){
+                return $query->where('type',$type);
+            })
+            ->when($status,function ($query,$status){
+                return $query->where('status',$status);
+            })
+            ->paginate(20);
 
-        return view('tasks.showindex', ['tasks' => $tasks]);
+
+        return view('tasks.list', ['tasks' => $tasks,
+            'filters'  => [
+                'plant' => $plant,
+                'type'  => $type,
+                'status'  => $status,
+            ],
+        ]);
     }
 }

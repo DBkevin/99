@@ -130,9 +130,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($orders as $item)
+                            @foreach ($orders as  $item)
                                 <tr>
-                                <td>1</td>
+                                <td>{{$loop->iteration}}</td>
                                 <td>{{$item->created_at}}</td>
                                 <td>{{$item->no}}</td>
                                 <td>{{$item->total_amount}}</td>
@@ -221,11 +221,32 @@
                                 <th>收支类型</th>
                                 <th>收支明细</th>
                                 <th>流量币</th>
-                                <th>账户剩余流量币</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            @foreach ($userPrices as  $item)
+                                <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$item->created_at}}</td>
+                                <td>{{$item->id}}</td>
+                                <td>
+                                   @if ($item->type ==1)
+                                       消费
+                                   @elseif($item->type==2)
+                                        提现
+                                    @else 
+                                        充值
+                                   @endif 
+
+                                </td>
+                                <td>{{$item->remark}}</td>
+                                <td>{{$item->price}}</td>
+                            </tr>
+                            @endforeach
+                          
+                        </tbody>
                     </table>
-                    <div class="no-data">暂无数据</div>
+                  
                 </div>
             </div>
             <!-- 选项卡4：客服处理 -->

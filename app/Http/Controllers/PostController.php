@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use APP\Models\User;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\Userpriceinfo;
 class PostController extends Controller
 {
     //
@@ -15,7 +16,8 @@ class PostController extends Controller
                 ->orderBy('created_at','desc')
                 ->paginate(20);
         $products=Product::all();
-        return view('users.post',compact(['products','orders']));
+        $userPrices=Userpriceinfo::where('users_id',$request->user()->id)->get();
+        return view('users.post',compact(['products','orders','userPrices']));
     }
     
     

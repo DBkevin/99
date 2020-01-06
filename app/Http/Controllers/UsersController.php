@@ -19,7 +19,10 @@ class UsersController extends Controller
         $user=Auth::user();
         $this->authorize('isme', $user);//确定是用户本人
         $pdd=Task::where('user_id',$user->id)->where('plant','拼多多任务')->count();
-        return view('users.show', compact('user','pdd'));
+        $tb=Task::where('user_id',$user->id)->where('plant','淘宝任务')->count();
+        $jd=Task::where('user_id',$user->id)->where('plant','京东任务')->count();
+
+        return view('users.show', compact('user','pdd','tb','jd'));
     }
     //重置密码页面
     public function restpasswd(){

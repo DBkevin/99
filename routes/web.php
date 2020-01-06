@@ -36,6 +36,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('tb/shouchang-create','TaskController@tbshouchang')->name('tb.shouchang');//PDD新建
     Route::get('rates','RatesController@index')->name('rates.index');//
     Route::get("modify-password","UsersController@modifyPassword")->name('modify-password');
+    Route::get("mission-search",'TaskController@index')->name('task.list');
 });
    Route::post('payment/alipay/notify', 'OrderController@alipayNotify')->name('payment.alipay.notify');//支付后端回调
 

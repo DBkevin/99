@@ -106,6 +106,14 @@ class OrderController extends Controller
             'tokens'=>$user_tokens + $user_old_tokens,
             'total_price'=>$user_old_total_price + $order->price
         ]);
+        //更新用户消费表
+        $price_info = $user->prices()->make([
+                'type' => 0,
+                'price' => $user_old_total_price,
+                'remark' => "充值流水号" . $order->no . "。充值",
+            ]);
+            $price_info->users()->associate($user->id);
+            $price_info->save();
         return app('alipay')->success(); //通知alipay收到
         \Log::debug('Alipay notify', $data->all());
     }

@@ -25,4 +25,5 @@ Route::group([
     $router->post('rates', 'RatesController@store');
     $router->get('rates/{id}/edit', 'RatesController@edit');
     $router->put('rates/{id}', 'RatesController@update');
+    $router->get('tasks', 'TasksController@index')->name('admin.tasks.index');
 });

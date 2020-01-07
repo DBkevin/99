@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return 'aaa';
+    return redirect('login');
 });
 Route::get('signup', 'UsersController@create')->name('signup');//显示注册
 Route::post('users','UsersController@store')->name('users.store');//注册

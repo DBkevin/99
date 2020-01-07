@@ -30,17 +30,23 @@ class Task extends Model
         'remark',
         'task_status',
         'status',
+        'created_at',
+        'updated_at',
     ];
 
     protected $dates = [
         'start_time',
+        'created_at',
+        'updated_at',
+
     ];
+     public $timestamps = true;
     /**
      * 关联User表
      */
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
     /**
      * 获取全部任务数量

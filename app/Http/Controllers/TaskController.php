@@ -83,7 +83,7 @@ class TaskController extends Controller
                 //生成SQL语句
                 for ($i = $nowH; $i <= 23; $i++) {
                     for ($j = 0; $j < $tasks_info[0]['times'][$i]; $j++) {
-                        $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->toDateString() .  ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
+                        $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->toDateString() .  ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()];
                     }
                 }
                 //计算一下当前时间之前有多少个任务，
@@ -91,13 +91,13 @@ class TaskController extends Controller
                 //计算到今天结束还剩下几个小时
                 //假设还剩余20个任务。时间还剩下3个小时。可以选择吧任务全部放在当前小时里面或者平分，居然看业务逻辑.这里全部放入当前小时
                 for ($leftI = 0; $leftI < $leftTask; $leftI++) {
-                    $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->toDateString() . ' 0' . $nowH . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
+                    $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->toDateString() . ' 0' . $nowH . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()];
                 }
             } else if ($tepNum == 0) {
                 //等于0 说明全部任务都在当前时间之后，直接拼接即可
                 for ($i = $nowH; $i <= 23; $i++) {
                     for ($j = 0; $j < $tasks_info[0]['times'][$i]; $j++) {
-                        $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->toDateString() . ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
+                        $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->toDateString() . ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()];
                     }
                 }
             }
@@ -123,7 +123,7 @@ class TaskController extends Controller
                         //生成SQL语句
                         for ($i = $nowH; $i <= 23; $i++) {
                             for ($j = 0; $j < $tasks_info[0]['times'][$i]; $j++) {
-                                $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->addDays($dayI)->toDateString() . ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
+                                $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->addDays($dayI)->toDateString() . ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()];
                             }
                         }
                         //计算一下当前时间之前有多少个任务，
@@ -132,14 +132,14 @@ class TaskController extends Controller
                         //假设还剩余20个任务。时间还剩下3个小时。可以选择吧任务全部放在当前小时里面或者平分，居然看业务逻辑.这里全部放入当前小时
                         for ($leftI = 0; $leftI < $leftTask; $leftI++) {
                             for ($j = 0; $j < $tasks_info[0]['times'][$leftI]; $j++) {
-                                $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->addDays($dayI)->toDateString() . ' 0' . $nowH . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
+                                $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->addDays($dayI)->toDateString() . ' 0' . $nowH . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()];
                             }
                         }
                     } else if ($tepNum == 0) {
                         //等于0 说明全部任务都在当前时间之后，直接拼接即可
                         for ($i = $nowH; $i <= 23; $i++) {
                             for ($j = 0; $j < $tasks_info[0]['times'][$i]; $j++) {
-                                $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->addDays($dayI)->toDateString() . ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
+                                $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->addDays($dayI)->toDateString() . ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()];
                             }
                         }
                     }
@@ -147,7 +147,7 @@ class TaskController extends Controller
                     //不是第一天，直接按时间遍历即可
                     for ($i = 0; $i <= 23; $i++) {
                         for ($j = 0; $j < $tasks_info[0]['times'][$i]; $j++) {
-                            $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->addDays($dayI)->toDateString() . ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
+                            $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::now()->addDays($dayI)->toDateString() . ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()];
                         }
                     }
                 }
@@ -160,14 +160,14 @@ class TaskController extends Controller
                     # code...
                     for ($i = 0; $i <= 23; $i++) {
                         for ($j = 0; $j < $tasks_info[0]['times'][$i]; $j++) {
-                            $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::create($start_time)->addDays($taskI)->toDateString() . ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
+                            $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::create($start_time)->addDays($taskI)->toDateString() . ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()];
                         }
                     }
                 }
             } else {
                 for ($i = 0; $i <= 23; $i++) {
                     for ($j = 0; $j < $tasks_info[0]['times'][$i]; $j++) {
-                        $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::create($start_time)->toDateString() . ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark];
+                        $infos[] = ["user_id" => $user, "plant" => $plant, 'task' => $task, 'type' => $type, 'pro_url' => $pro_url, 'pro_title' => $pro_title, 'keyword' => $keyword, 'show' => 1, 'start_time' => Carbon::create($start_time)->toDateString() . ' 0' . $i . ':00:00', 'custom_1' => $custom1, 'custom_2' => $custom2, 'custom_3' => $custom3, 'custom_4' => $custom4, 'remark' => $remark,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()];
                     }
                 }
             }

@@ -8,6 +8,7 @@
 @section('content')
 <div class="content">
     @include('shared._messages')
+    @include('shared._errors')
     <ul class="tab-container flex">
         <li class="tab-item flex tab-item-active">
             <a href="javascript:void(0);">

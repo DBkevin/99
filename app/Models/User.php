@@ -42,4 +42,5 @@ class User extends Authenticatable
     public function prices(){
         return  $this->hasMany(Userpriceinfo::class,'users_id');
     }
+    
 }

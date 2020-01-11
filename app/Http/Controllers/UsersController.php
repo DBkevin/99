@@ -59,15 +59,28 @@ class UsersController extends Controller
         if (!hash_equals($verifyData['code'], $request->verification_code)) {
             return back()->withErrors('验证码错误');
         }
+       
         $user = User::create([
             'name' => $request->name,
             'phone' => $verifyData['phone'],
             'password' => bcrypt($request->password),
             'qq'=>$request['qq'],
         ]);
+        if($request->has('pid')){
+            $pid=$request->pid;
+        }
+        //判断Pid是否是一个用户ID;
+        $P_user=User::where('id',$pid)->first();
+        if($P_user){
+           $user->update([
+               'PID'=>$pid,
+           ]);
+            $user->save();
+        }
         // 清除验证码缓存
         \Cache::forget($request->verification_key);
-        return redirect()->route('users.show', [Auth::user()]);
+        Auth::login($user);
+        return redirect()->route('users.show', $user);
     }
     //显示登陆页面
     public function showLoginForm(){
@@ -87,4 +100,14 @@ class UsersController extends Controller
     public function modifyPassword(){
         return view("users.modifypassword");
     }
+    public function spread(User $user){
+        $user=Auth::user();
+        $users=User::where('PID',$user->id)->paginate(20);
+        return view('users.spread',compact('users'));
+    }
+   public function destroy(){
+        Auth::logout();
+        session()->flash('success', '您已成功退出！');
+        return redirect('login');
+   } 
 }

@@ -17,6 +17,7 @@ return [
     'order_ttl'=>60,
     'tokensPH'=>100,
     'tokensName'=>'流量币',
+    'sparedPrice'=>"0.1",    //提成多少 10%就是0.1
     /*
     |--------------------------------------------------------------------------
     | Application Environment

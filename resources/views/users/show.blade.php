@@ -141,14 +141,14 @@
                                     <li class="getPay marketing-btn">提现</li>
                                 </ul>
                                 <ul class="marketing-info-item flex">
-                                    <!--<li class="marketing-info-title">
+                                   <li class="marketing-info-title">
                                         推广链接
                                     </li>
                                     <li class="marketingURL marketing-info-data">
-                                        http://www.renqi99.com/?tg=wSkbjyuL
+                                       {{route('signup')}}?pid={{$user->id}}
                                     </li>
                                     <li class="copyURL marketing-btn">复制</li>
-                                -->
+                               
                                 </ul>
                                 <ul class="marketing-info-item flex">
                                     <li class="marketing-info-title">
@@ -161,14 +161,14 @@
                                 </ul>
                             </div>
                         </div>
-                       <!-- <div class="marketing flex">
+                      <div class="marketing flex">
                             <p>超给力的推广好友系统永久获取高佣金提成</p>
                             <p>别人通过推广链接注册的自动成为您的推广的好友！</p>
                             <p>好友每次充值您将获得高达10%佣金
-                                （<a href="" class="marketing-prize">详情推广奖励点击查看</a>）
+                                （<a href="#" class="marketing-prize">详情推广奖励点击查看</a>）
                             </p>
                         </div>
-                    -->
+                  
                     </div>
                     <div class="ad">
                         <p class="title"></p>

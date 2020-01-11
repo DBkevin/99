@@ -37,6 +37,8 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('rates','RatesController@index')->name('rates.index');//
     Route::get("modify-password","UsersController@modifyPassword")->name('modify-password');
     Route::get("mission-search",'TaskController@index')->name('task.list');
+    Route::get('spread','UsersController@spread')->name('users.spread');
+    Route::delete('logout', 'UsersController@destroy')->name('logout');
 });
    Route::post('payment/alipay/notify', 'OrderController@alipayNotify')->name('payment.alipay.notify');//支付后端回调
 

@@ -83,6 +83,7 @@
                         <input type="password" name="userPass" id="userPassAgain" placeholder="请再次输入密码" />
                         <p class="userPassAgain-check check"></p>
                     </div>
+                    <input type="hidden" name="pid" id="pid" value=""/>
                     <div class="QQNum input-wrap">
                         <input type="text" name="qq" class="QQNum" id="QQ" placeholder="请输入QQ号码" />
                         <p class="QQNum-check check"></p>
@@ -104,7 +105,32 @@
     <script src="/js/QQNumCheck.js"></script>
     <script src="/js/commen.js"></script>
     <script src="/js/signup.js"></script>
-    {{-- <script src="/js/resetPWD.js"></script> --}}
+    <script>
+        window.onload=getPid();
+        function getPid(){
+            //获取地址
+            var url=window.location.href;
+            //获取参数
+            var arr=url.split('?');
+            //判断是否有值
+            if(arr.length ==1){
+                return false;
+            }
+            //拆解字符串，转成数组
+            var value_arr=arr[1].split('&');
+            var tmp_arr=[];
+            for (index = 0; index < value_arr.length; index++) {
+                var key_val=value_arr[index].split('=');//按=号拆解为数组
+                tmp_arr[key_val[0]]=key_val[1];
+            }
+            if(tmp_arr["pid"]!=0){
+                //获取inpu name 为pid的赋值
+                $('#pid').val(tmp_arr['pid']);
+            }
+
+        }
+
+    </script>
 </body>
 
 </html>

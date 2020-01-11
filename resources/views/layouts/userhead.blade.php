@@ -48,10 +48,14 @@
             </a>
         </div>
         <div class="exit">
-            <i class="iconfont iconfont-exit">&#xe6b2;</i>
-            <div class="exit-btn">
-                退出
-            </div>
+            <form action="{{ route('logout') }}" method="POST">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                <i class="iconfont iconfont-exit">&#xe6b2;</i>
+                <button type="submit">
+                    退出
+                </button>
+            </form>
         </div>
     </div>
 
@@ -93,6 +97,12 @@
                 <li class="slider-item">
                     <i class="iconfont">&#xe604;</i>
                     <span>任务查询</span>
+                </li>
+            </a>
+            <a href="{{route('users.spread')}}" target="_self">
+                <li class="slider-item">
+                    <i class="iconfont">&#xe604;</i>
+                    <span>推广查询</span>
                 </li>
             </a>
             <a href="{{route('post.show')}}" target="_self">

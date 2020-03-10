@@ -106,10 +106,30 @@ class OrderController extends Controller
             'tokens'=>$user_tokens + $user_old_tokens,
             'total_price'=>$user_old_total_price + $order->price
         ]);
+        //判断user是否有上级推广
+        if($user->PID){
+            //存在上级ID
+            $P_user=User::where('id',$user->PID)->first();
+            //计算本次提成
+            $commission=$order->price * config('app.sparedPrice');
+            //更新上级表
+            $total_commission=$P_user->commission +$commission;
+            $P_user->update([
+                'commission'=>$total_commission,
+            ]);
+            $P_user->save();
+            $p_users_price_inf=$P_user->prices()->make([
+                'type'=>3,
+                'price'=>$commission,
+                'remark'=>"下级用户id".$user->id."充值".$order->price."元。提成".$commission,
+            ]);
+            $p_users_price_inf->users()->associate($P_user->id);
+            $p_users_price_inf->save();
+        }
         //更新用户消费表
         $price_info = $user->prices()->make([
                 'type' => 0,
-                'price' => $user_old_total_price,
+                'price' => $user->price,
                 'remark' => "充值流水号" . $order->no . "。充值",
             ]);
             $price_info->users()->associate($user->id);

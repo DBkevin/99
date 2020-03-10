@@ -27,7 +27,7 @@
                         @endif
                         </th>
                         <th>{{$item->total_price}}</th>
-                        <th>{{$item->total_price * config('spadedPrice')}}</th>
+                        <th>{{$item->total_price * config('app.spadedPrice')}}</th>
                 </tr>
             @endforeach
         </tbody>

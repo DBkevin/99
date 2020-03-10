@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
        // 往服务容器中注入一个名为 alipay 的单例对象
         $this->app->singleton('alipay',function(){
             $config=config('pay.alipay');
-            $config['notify_url']="http://requestbin.net/r/18slmsr1";//测试用需要去http://requestbin.net/ 申请
+            $config['notify_url']="http://requestbin.net/r/z4vknyz4";//测试用需要去http://requestbin.net/ 申请
             //$config['notify_url'] = route('payment.alipay.notify'); //后端回调地址
             $config['return_url'] = route('payment.alipay.return');//前端回调地址
             //判断当前项目是否上线

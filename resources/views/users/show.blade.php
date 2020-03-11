@@ -136,7 +136,7 @@
                                         推广佣金
                                     </li>
                                     <li class="commission marketing-info-data">
-                                        0.00
+                                      {{$user->commission}}
                                     </li>
                                     <li class="getPay marketing-btn">提现</li>
                                 </ul>

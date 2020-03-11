@@ -234,8 +234,8 @@
                                        消费
                                    @elseif($item->type==2)
                                         提现
-                                    @else 
-                                        充值
+                                    @elseif($item->type==3)
+                                        推广提成
                                    @endif 
 
                                 </td>
